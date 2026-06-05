@@ -9,9 +9,9 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	self.velocity.y = move_toward(self.velocity.y,300,20)
+	self.velocity.y = clamp(self.velocity.y + 30 ,-99999,3000) 
 	if Input.is_action_just_pressed("ui_accept") and self.is_on_floor():
-		self.velocity.y = -700
+		self.velocity.y = -900
 	var axis = Input.get_axis("ui_left","ui_right")
 	self.velocity.x = move_toward(self.velocity.x,MaxVelocity_X * axis,50)
 	print(axis)

@@ -5,17 +5,13 @@ func sigmoid(x) -> float:
 		
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var index = 0
+	var timer  = get_tree().create_timer(0.5)
 	await  get_tree().process_frame
 
 	var currentRotation = self.rotation_degrees
 	var GoalRotation  = currentRotation +90
-	print("test")
-	print(self.rotation_degrees)
-	print(GoalRotation)
-	while self.rotation_degrees < GoalRotation -0.1:
-		var calculation = sigmoid(index)
-		index += 0.03
+	while timer.time_left != 0 :
+		var calculation = sigmoid(1 - timer.time_left * 2)
 		texture.modulate.a = 1-calculation
 		self.rotation_degrees =  currentRotation + 90* calculation
 		await get_tree().process_frame

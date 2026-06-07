@@ -5,13 +5,13 @@ extends Node2D
 func _ready() -> void:
 	var originalPanelSize = Pan.size
 	var originalPanelPos = Pan.position
-	var index = 0
-	while  Pan.size.y > 0.1:
-		index += 0.04  
-		var returnValue =  (1 - sigmoid(index))
+	var timer = get_tree().create_timer(0.5)
+	while  timer.time_left != 0:
+		print(timer.time_left)
+		var returnValue =  (1 - sigmoid(1- 2*timer.time_left))
 		Pan.size.y = returnValue * originalPanelSize.y
 		Pan.position.y = returnValue * originalPanelPos.y
-		await get_tree().create_timer(0.01).timeout
+		await get_tree().process_frame
 	self.queue_free()
 		
 

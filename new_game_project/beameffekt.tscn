@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c3vksxpo8gamr"]
+
+[ext_resource type="Script" uid="uid://d3gf4m2m1eg7" path="res://beameffekt.gd" id="1_yjyjv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjyjv"]
+bg_color = Color(0.9032311, 0.87506336, 1.540184e-06, 1)
+
+[node name="Beameffekt" type="Node2D" unique_id=696947622]
+script = ExtResource("1_yjyjv")
+
+[node name="Panel" type="Panel" parent="." unique_id=177556191]
+offset_left = -1000.0
+offset_top = -30.0
+offset_right = 1000.0
+offset_bottom = 30.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yjyjv")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1927505964]

@@ -1,17 +1,59 @@
 extends CharacterBody2D
-@export var GetDamageCall:Callable
+var direction = 1
+@onready var EnemyArea = $Area2D
+@onready var NearbyArea = $NearbyArea
+@export var Health = 100
+var CanAttack = true
+var PlayerIsIn = false
+var EnemyBullet = preload("res://Enemybullet.tscn")
+func ChangeDirection():
+	await get_tree().create_timer(1).timeout
+	direction *=-1
+	ChangeDirection()
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	GetDamageCall = GetDamage 
-	pass # Replace with function body.
+	EnemyArea.body_entered.connect(Enemyentered)
+	NearbyArea.body_entered.connect(PlayerNearBy)
+	NearbyArea.body_exited.connect(PlayerExit)
+	ChangeDirection()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-func GetDamage(Amount):
-	self.set_meta("Health",self.get_meta("Health")- Amount)
-	print(self.get_meta("Health"))
-	pass
+func _physics_process(delta: float) -> void:
+	if PlayerIsIn and CanAttack :
+		print("Attacke")
+		CanAttack = false
+		get_tree().create_timer(2).timeout.connect(func ():CanAttack = true)
+		var bullet=  EnemyBullet.instantiate()
+		self.get_parent().add_child(bullet)
+		bullet.position = self.position
+		
+	self.velocity.x = move_toward(self.velocity.x,100 * direction,10)
+	
+	move_and_slide()
+func GetDamage(Amount ):
+	Health -= Amount
+	if Health <= 0:
+		self.queue_free()
+
+func Enemyentered(Body):
+	print(Body)
+	if Body.is_in_group("player"):
+		var direction = (Body.position - self.position).normalized()
+		Body.playerKnockback(direction,800)
+		Body.GetDamage(10)
+		print(Body.Health)
+		print(direction)
+func PlayerNearBy(Body):
+	if Body.is_in_group("player"):
+		PlayerIsIn = true
+		print("yo")
+func  PlayerExit(Body):
+	if Body.is_in_group("player"):
+		PlayerIsIn = false
+
+	
+	
 	

@@ -4,12 +4,13 @@ const MaxVelocity_X = 600
 const MaxGravity = -40
 var isDashing = false
 var AllowedToDash = true
+@export var Health = 100
 @onready var World = $".."
 @onready var RayCast =  $RayCast2D
 @onready var PlayerArea = $PlayerArea
 var OnWall = false
 var Gravity = 30
-
+var Knockback = false
 func _ready() -> void:
 	PlayerArea.area_entered.connect( func (area): 
 		if area.is_in_group("Wall") and  not self.is_on_floor() :
@@ -23,15 +24,19 @@ func _physics_process(delta: float) -> void:
 		if OnWall:
 			OnWall = false
 	var axis = Input.get_axis("ui_left","ui_right")
-	if not isDashing :
-		if OnWall:
-			Gravity = 5
-		else:
-			Gravity = 30		  
-		self.velocity.y = move_toward(self.velocity.y,3000 ,Gravity * delta * 60) 
-		self.velocity.x = move_toward(self.velocity.x,MaxVelocity_X * axis,50 * delta * 60) 
+	if not isDashing   :
+		if not Knockback:
+			if OnWall:
+				Gravity = 5
+			else:
+				Gravity = 30		  
+			self.velocity.y = move_toward(self.velocity.y,1000 ,Gravity * delta * 60) 
+			self.velocity.x = move_toward(self.velocity.x,MaxVelocity_X * axis,50 * delta * 60) 
 	else:
-		Dash(delta)
+		if Knockback :
+			isDashing = false
+		else:
+			Dash(delta)
 	if Input.is_action_just_pressed("ui_accept"):
 		if self.is_on_floor():
 			self.velocity.y = -900  
@@ -65,8 +70,20 @@ func Dash(delta) ->void:
 		print("done")
 		isDashing = false
 	
-
-
+func playerKnockback(direction,Strengh):
+	Knockback = true
+	print("wow")
+	self.velocity = direction * Strengh
+	await  get_tree().physics_frame
+	Knockback = false
+	
+func  GetDamage(Amount):
+	Health -= Amount
+	if Health <= 0:
+		print("gameOver ")
+func  Kill():
+	Health = 100
+	self.position = Vector2(0,0)
 	
 	
 	

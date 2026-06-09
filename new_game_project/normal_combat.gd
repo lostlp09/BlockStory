@@ -25,8 +25,9 @@ func _physics_process(delta: float) -> void:
 		var Area:Area2D = Hitbox.get_node("Area2D")
 		await  get_tree().physics_frame
 		for Areas in Area.get_overlapping_areas():
+			print(Areas)
 			var Enemy = Areas.get_parent()
 			if Enemy.is_in_group("Enemy"):
-				Enemy.GetDamageCall.bind(10).call()
+				Enemy.GetDamage(10)
 		Hitbox.queue_free()
 		get_tree().create_timer(0.4).timeout.connect(func (): CanAttack  = true)

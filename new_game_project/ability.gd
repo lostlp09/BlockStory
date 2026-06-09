@@ -16,6 +16,7 @@ func _physics_process(delta: float) -> void:
 	
 func Beam() ->void:
 	AllowToBeam = false
+	get_tree().create_timer(1).timeout.connect(func (): AllowToBeam = true)
 	var BeamObject = BeamEffect.instantiate()
 	World.add_child(BeamObject)
 	var direction = (get_global_mouse_position() - player.position).normalized()
@@ -35,7 +36,6 @@ func Beam() ->void:
 	for EnemyArea in Area.get_overlapping_areas():
 		if EnemyArea.get_parent().is_in_group("Enemy"):
 			var Enemy = EnemyArea.get_parent()
-			Enemy.GetDamageCall.bind(30).call()
+			Enemy.GetDamage(30)
 	Area.queue_free()
-	await get_tree().create_timer(1).timeout
-	AllowToBeam = true
+	

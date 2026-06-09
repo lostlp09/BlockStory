@@ -1,0 +1,12 @@
+extends Node2D
+@onready var KillArea = $Area2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	KillArea.body_entered.connect(func(body):if body.is_in_group("player"):body.Kill())
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass

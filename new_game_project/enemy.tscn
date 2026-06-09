@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cblfrt5l7ii7p"]
+
+[ext_resource type="Script" uid="uid://d1xa2g7dfuwoy" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://b1x1m24lwuisq" path="res://icon.svg" id="2_qi2p4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+size = Vector2(46.801304, 45.994385)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iifgy"]
+size = Vector2(18.430027, 18.89078)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
+radius = 767.2752
+
+[node name="Enemy" type="CharacterBody2D" unique_id=57849691 groups=["Enemy"]]
+scale = Vector2(0.571, 0.571)
+script = ExtResource("1_4gyqm")
+metadata/Health = 100
+
+[node name="Area2D" type="Area2D" parent="." unique_id=650671015]
+scale = Vector2(0.571, 0.571)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1329559412]
+position = Vector2(3.0670993, -3.067099)
+scale = Vector2(3.801, 3.801)
+shape = SubResource("RectangleShape2D_4gyqm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=625973575]
+position = Vector2(1.7513149, -0.87565887)
+scale = Vector2(3.8010004, 3.8010004)
+shape = SubResource("RectangleShape2D_iifgy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=817778125]
+position = Vector2(0, 3.5762787e-07)
+scale = Vector2(0.571, 0.571)
+texture = ExtResource("2_qi2p4")
+
+[node name="NearbyArea" type="Area2D" parent="." unique_id=299856304]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NearbyArea" unique_id=1568990682]
+position = Vector2(0, 1.7513136)
+shape = SubResource("CircleShape2D_4gyqm")

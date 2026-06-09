@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b1x1m24lwuisq" path="res://icon.svg" id="2_emwjj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1t3na"]
-size = Vector2(8.416076, 7.234043)
+size = Vector2(5.2245865, 5.319149)
 
 [node name="Enemybullet" type="Node2D" unique_id=1642264752 groups=["Enemy"]]
 scale = Vector2(10.575, 10.575)
@@ -17,5 +17,4 @@ texture = ExtResource("2_emwjj")
 [node name="Area2D" type="Area2D" parent="." unique_id=410673493]
 
 [node name="EnemyBulletARea" type="CollisionShape2D" parent="Area2D" unique_id=1928836129]
-position = Vector2(-0.09456259, 0.09456265)
 shape = SubResource("RectangleShape2D_1t3na")

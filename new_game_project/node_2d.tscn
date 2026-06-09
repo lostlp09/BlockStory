@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://bex0genodabg7" path="res://ability.gd" id="3_0hol4"]
 [ext_resource type="Script" uid="uid://cqi2vca8qde7a" path="res://normal_combat.gd" id="4_q6r6c"]
 [ext_resource type="PackedScene" uid="uid://dof7qa3omkk7j" path="res://Spike.tscn" id="5_kdubu"]
-[ext_resource type="PackedScene" uid="uid://cblfrt5l7ii7p" path="res://enemy.tscn" id="5_q6r6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
 size = Vector2(129.41174, 129.41174)
@@ -16,7 +15,7 @@ size = Vector2(148, 128)
 size = Vector2(1295, 319)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d21ai"]
-size = Vector2(1292.0011, 298.07285)
+size = Vector2(1329.0011, 319)
 
 [node name="Node2D" type="Node2D" unique_id=778891098]
 
@@ -55,38 +54,138 @@ script = ExtResource("4_q6r6c")
 
 [node name="Map" type="Node2D" parent="." unique_id=1819857777]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Map" unique_id=1456948089]
+[node name="Block" type="StaticBody2D" parent="Map" unique_id=1456948089]
+position = Vector2(64, 336)
 
-[node name="ColorRect" type="ColorRect" parent="Map/StaticBody2D" unique_id=1012463489]
-offset_left = -594.0
-offset_top = 188.0
-offset_right = 701.0
-offset_bottom = 507.0
+[node name="ColorRect" type="ColorRect" parent="Map/Block" unique_id=1012463489]
+offset_left = -649.0
+offset_top = -149.0
+offset_right = 651.0
+offset_bottom = 171.0
 color = Color(0.26666668, 0.23529412, 0.8039216, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StaticBody2D" unique_id=1993894904]
-position = Vector2(53.5, 347.495)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Block" unique_id=1993894904]
+position = Vector2(-3, 10.5)
 shape = SubResource("RectangleShape2D_q6r6c")
 
-[node name="WallArea" type="Area2D" parent="Map/StaticBody2D" unique_id=1239241185 groups=["Wall"]]
+[node name="WallArea" type="Area2D" parent="Map/Block" unique_id=1239241185 groups=["Wall"]]
 
-[node name="WallArea" type="CollisionShape2D" parent="Map/StaticBody2D/WallArea" unique_id=130200951]
-position = Vector2(55.000027, 345.96356)
+[node name="WallArea" type="CollisionShape2D" parent="Map/Block/WallArea" unique_id=130200951]
+position = Vector2(3, 10.5)
+scale = Vector2(0.9999992, 1)
+shape = SubResource("RectangleShape2D_d21ai")
+
+[node name="Block2" type="StaticBody2D" parent="Map" unique_id=1388637132]
+position = Vector2(976.00006, -72)
+scale = Vector2(0.05465342, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Map/Block2" unique_id=34458542]
+offset_left = -649.0
+offset_top = -149.0
+offset_right = 646.0
+offset_bottom = 170.0
+color = Color(0.26666668, 0.23529412, 0.8039216, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Block2" unique_id=1968658744]
+position = Vector2(-3, 10.5)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="WallArea" type="Area2D" parent="Map/Block2" unique_id=1641830210 groups=["Wall"]]
+
+[node name="WallArea" type="CollisionShape2D" parent="Map/Block2/WallArea" unique_id=975869036]
+position = Vector2(3, 10.5)
+scale = Vector2(0.9999992, 1)
+shape = SubResource("RectangleShape2D_d21ai")
+
+[node name="Block3" type="StaticBody2D" parent="Map" unique_id=292359016]
+position = Vector2(560, -224)
+scale = Vector2(-0.145, 0.315)
+
+[node name="ColorRect" type="ColorRect" parent="Map/Block3" unique_id=1086198009]
+offset_left = -649.0
+offset_top = -149.0
+offset_right = 646.0
+offset_bottom = 170.0
+color = Color(0.26666668, 0.23529412, 0.8039216, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Block3" unique_id=193315076]
+position = Vector2(-3, 10.5)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="WallArea" type="Area2D" parent="Map/Block3" unique_id=739893692 groups=["Wall"]]
+
+[node name="WallArea" type="CollisionShape2D" parent="Map/Block3/WallArea" unique_id=595849846]
+position = Vector2(3, 10.5)
+scale = Vector2(0.9999992, 1)
+shape = SubResource("RectangleShape2D_d21ai")
+
+[node name="Block4" type="StaticBody2D" parent="Map" unique_id=1842929729]
+position = Vector2(226, -317)
+scale = Vector2(-0.145, 0.315)
+
+[node name="ColorRect" type="ColorRect" parent="Map/Block4" unique_id=1413207095]
+offset_left = -649.0
+offset_top = -149.0
+offset_right = 646.0
+offset_bottom = 170.0
+color = Color(0.26666668, 0.23529412, 0.8039216, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Block4" unique_id=1386687584]
+position = Vector2(-3, 10.5)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="WallArea" type="Area2D" parent="Map/Block4" unique_id=727324796 groups=["Wall"]]
+
+[node name="WallArea" type="CollisionShape2D" parent="Map/Block4/WallArea" unique_id=1158167146]
+position = Vector2(3, 10.5)
+scale = Vector2(0.9999992, 1)
+shape = SubResource("RectangleShape2D_d21ai")
+
+[node name="Block5" type="StaticBody2D" parent="Map" unique_id=57827096]
+position = Vector2(-51, -374)
+scale = Vector2(-0.16171889, 0.9709665)
+
+[node name="ColorRect" type="ColorRect" parent="Map/Block5" unique_id=249827173]
+offset_left = -649.0
+offset_top = -149.0
+offset_right = 646.0
+offset_bottom = 170.0
+color = Color(0.26666668, 0.23529412, 0.8039216, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Block5" unique_id=1941666357]
+position = Vector2(-3, 10.5)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="WallArea" type="Area2D" parent="Map/Block5" unique_id=1307671683 groups=["Wall"]]
+
+[node name="WallArea" type="CollisionShape2D" parent="Map/Block5/WallArea" unique_id=121335788]
+position = Vector2(3, 10.5)
 scale = Vector2(0.9999992, 1)
 shape = SubResource("RectangleShape2D_d21ai")
 
 [node name="BackGround" type="ColorRect" parent="Map" unique_id=699867991]
 z_index = -81
-offset_left = -2215.0
-offset_top = -693.0
-offset_right = 1477.0
-offset_bottom = 1266.0
+offset_left = -10132.0
+offset_top = -6023.0
+offset_right = 15159.0
+offset_bottom = 3972.0
 color = Color(0.5686275, 0.5529412, 0.8862745, 1)
 
+[node name="Spike4" parent="Map" unique_id=1550086144 instance=ExtResource("5_kdubu")]
+position = Vector2(494, -296)
+
+[node name="Spike3" parent="Map" unique_id=1318940319 instance=ExtResource("5_kdubu")]
+position = Vector2(546, -296)
+
+[node name="Spike2" parent="Map" unique_id=1786872035 instance=ExtResource("5_kdubu")]
+position = Vector2(676, 166)
+
+[node name="Spike" parent="Map" unique_id=257438151 instance=ExtResource("5_kdubu")]
+position = Vector2(626, 166)
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1377743345]
-
-[node name="Enemy" parent="." unique_id=57849691 instance=ExtResource("5_q6r6c")]
-position = Vector2(221, 161)
-
-[node name="Node2D" parent="." unique_id=1550086144 instance=ExtResource("5_kdubu")]
-position = Vector2(633, 137)

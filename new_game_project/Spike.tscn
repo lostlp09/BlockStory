@@ -11,7 +11,7 @@ scale = Vector2(0.4, 0.4)
 script = ExtResource("1_fgk57")
 
 [node name="Polygon8" type="Sprite2D" parent="." unique_id=400651539]
-position = Vector2(-1, 1)
+position = Vector2(0, -4.925)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_35xt7")
 

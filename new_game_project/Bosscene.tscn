@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://c0wvftevtcm4f"]
+
+[ext_resource type="PackedScene" uid="uid://r2hhrjyuud55" path="res://BigBoss.tscn" id="1_0vb12"]
+[ext_resource type="Script" uid="uid://caufakp57riq5" path="res://Walltracker.gd" id="1_icicd"]
+[ext_resource type="Script" uid="uid://dw2lx4ftu5tmh" path="res://progress_bar.gd" id="2_655ca"]
+[ext_resource type="Script" uid="uid://dc2tyapas16kr" path="res://player.gd" id="3_2rut4"]
+[ext_resource type="Script" uid="uid://bex0genodabg7" path="res://ability.gd" id="4_icicd"]
+[ext_resource type="Script" uid="uid://cqi2vca8qde7a" path="res://normal_combat.gd" id="5_o7v3h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jr54"]
+size = Vector2(129.41174, 129.41174)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kve1u"]
+size = Vector2(148, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm3de"]
+size = Vector2(2054, 363)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7v3h"]
+size = Vector2(311, 1276.5)
+
+[node name="BossScene" type="Node2D" unique_id=588646523]
+script = ExtResource("1_icicd")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1755654033]
+
+[node name="Boss" parent="." unique_id=399143101 instance=ExtResource("1_0vb12")]
+position = Vector2(-588, 258)
+scale = Vector2(5, 5)
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1217168251 groups=["player"]]
+position = Vector2(485.9999, 279)
+scale = Vector2(0.425, 0.425)
+script = ExtResource("3_2rut4")
+
+[node name="ColorRect" type="ColorRect" parent="Player" unique_id=798207582]
+offset_left = -65.882355
+offset_top = -63.529415
+offset_right = 64.117645
+offset_bottom = 66.47058
+color = Color(0, 0.8862745, 0.9137255, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2143860510]
+position = Vector2(-1.1764688, 1.1764717)
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_6jr54")
+
+[node name="PlayerArea" type="Area2D" parent="Player" unique_id=1290834555]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerArea" unique_id=241909146]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_kve1u")
+
+[node name="RayCast2D" type="RayCast2D" parent="Player" unique_id=687757420]
+scale = Vector2(1, 26.43)
+target_position = Vector2(-75, 0)
+
+[node name="Abilitys" type="Node2D" parent="Player" unique_id=415924572]
+script = ExtResource("4_icicd")
+
+[node name="normalCombat" type="Node2D" parent="Player" unique_id=280491269]
+script = ExtResource("5_o7v3h")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=114774663]
+position = Vector2(-696, 308)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1745229587]
+offset_left = -237.0
+offset_right = 1815.0
+offset_bottom = 361.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=576173061]
+position = Vector2(791, 181.5)
+shape = SubResource("RectangleShape2D_rm3de")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=762155426 groups=["Wall"]]
+position = Vector2(-913.00006, -555)
+scale = Vector2(0.08, 2.405)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2" unique_id=1937796199]
+offset_left = -237.0
+offset_right = 1815.0
+offset_bottom = 361.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1976157178]
+position = Vector2(791, 181.5)
+shape = SubResource("RectangleShape2D_rm3de")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D2" unique_id=700550492 groups=["Wall"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/Area2D" unique_id=870658347]
+position = Vector2(791, 181.5)
+shape = SubResource("RectangleShape2D_rm3de")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=311025837 groups=["Wall"]]
+position = Vector2(975.99994, -534)
+scale = Vector2(0.08, 2.405)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D3" unique_id=661828287]
+offset_left = -237.0
+offset_right = 1815.0
+offset_bottom = 361.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=122756891]
+position = Vector2(791, 181.5)
+shape = SubResource("RectangleShape2D_rm3de")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D3" unique_id=1446271805 groups=["Wall"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3/Area2D" unique_id=1420524336]
+position = Vector2(791, 181.5)
+shape = SubResource("RectangleShape2D_rm3de")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1144213422]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=2006012962]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=597248577]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 94.0
+offset_right = 823.0
+offset_bottom = 121.0
+max_value = 1000.0
+show_percentage = false
+script = ExtResource("2_655ca")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/ProgressBar" unique_id=691643046]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Nearwall" type="Area2D" parent="." unique_id=1239167246]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nearwall" unique_id=2129200432]
+position = Vector2(-804, 38)
+shape = SubResource("RectangleShape2D_o7v3h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Nearwall" unique_id=1043070930]
+position = Vector2(968, 38)
+shape = SubResource("RectangleShape2D_o7v3h")

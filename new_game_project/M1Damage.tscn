@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://20dqpldmasjn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0n1c"]
-size = Vector2(26, 66)
+size = Vector2(63.5, 66)
 
 [node name="M1Damage" type="Node2D" unique_id=2054620356]
 metadata/Damage = 20
@@ -10,4 +10,5 @@ metadata/Damage = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1435478190]
 unique_name_in_owner = true
+position = Vector2(4, 0)
 shape = SubResource("RectangleShape2D_h0n1c")

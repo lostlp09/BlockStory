@@ -11,6 +11,7 @@ var AllowedToDash = true
 var OnWall = false
 var Gravity = 30
 var Knockback = false
+var Stunned = false
 func _ready() -> void:
 	PlayerArea.area_entered.connect( func (area): 
 		if area.is_in_group("Wall") and  not self.is_on_floor() :
@@ -24,6 +25,7 @@ func _physics_process(delta: float) -> void:
 		if OnWall:
 			OnWall = false
 	var axis = Input.get_axis("ui_left","ui_right")
+	if Stunned:axis = 0
 	if not isDashing   :
 		if not Knockback:
 			if OnWall:
@@ -46,7 +48,7 @@ func _physics_process(delta: float) -> void:
 				PositiveOrNegative = 1
 			self.velocity = Vector2(PositiveOrNegative *  800,-800)
 			OnWall = false
-	if Input.is_action_just_pressed("Dash") and  not isDashing and AllowedToDash:
+	if Input.is_action_just_pressed("Dash") and  not isDashing and AllowedToDash and not Stunned:
 		print("run")
 		if OnWall :
 			if RayCast.is_colliding():
@@ -70,13 +72,22 @@ func Dash(delta) ->void:
 		print("done")
 		isDashing = false
 	
-func playerKnockback(direction,Strengh):
-	Knockback = true
-	print("wow")
-	self.velocity = direction * Strengh
-	await  get_tree().physics_frame
-	Knockback = false
-	
+func playerKnockBackStun(direction,Strengh):
+	if not Stunned:
+		Stunned = true
+		Knockback = true
+		print("wow")
+		self.velocity = direction * Strengh
+		await  get_tree().physics_frame
+		Knockback = false
+		await get_tree().create_timer(0.5).timeout
+		Stunned = false
+func playerKnockBack(direction,Strengh):
+		Knockback = true
+		print("wow")
+		self.velocity = direction * Strengh
+		await  get_tree().physics_frame
+		Knockback = false
 func  GetDamage(Amount):
 	Health -= Amount
 	if Health <= 0:

@@ -24,10 +24,14 @@ func _physics_process(delta: float) -> void:
 		Hitbox.rotation = direction.angle()
 		var Area:Area2D = Hitbox.get_node("Area2D")
 		await  get_tree().physics_frame
-		for Areas in Area.get_overlapping_areas():
-			print(Areas)
-			var Enemy = Areas.get_parent()
+		var GiveKnockback = true
+		for AreaObject in Area.get_overlapping_areas():
+			if AreaObject.get_parent().is_in_group("Enemy") and GiveKnockback:
+				print("test")
+				player.playerKnockBack(direction *-1 ,400)
+				GiveKnockback = false
+			var Enemy = AreaObject.get_parent()
 			if Enemy.is_in_group("Enemy"):
-				Enemy.GetDamage(10)
+				Enemy.GetDamage(10)	
 		Hitbox.queue_free()
 		get_tree().create_timer(0.4).timeout.connect(func (): CanAttack  = true)

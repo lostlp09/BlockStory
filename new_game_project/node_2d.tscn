@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bex0genodabg7" path="res://ability.gd" id="3_0hol4"]
 [ext_resource type="Script" uid="uid://cqi2vca8qde7a" path="res://normal_combat.gd" id="4_q6r6c"]
 [ext_resource type="PackedScene" uid="uid://dof7qa3omkk7j" path="res://Spike.tscn" id="5_kdubu"]
+[ext_resource type="PackedScene" uid="uid://r2hhrjyuud55" path="res://BigBoss.tscn" id="5_q6r6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
 size = Vector2(129.41174, 129.41174)
@@ -20,6 +21,7 @@ size = Vector2(1308.0011, 320)
 [node name="Node2D" type="Node2D" unique_id=778891098]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2139025381 groups=["player"]]
+position = Vector2(485.9999, 279)
 scale = Vector2(0.425, 0.425)
 script = ExtResource("1_0e48y")
 
@@ -36,7 +38,6 @@ scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="PlayerArea" type="Area2D" parent="Player" unique_id=3718947]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerArea" unique_id=1566131354]
 position = Vector2(-1, 0)
@@ -908,3 +909,6 @@ metadata/_edit_group_ = true
 
 [node name="Node2D2" parent="." unique_id=1031539797 instance=ExtResource("5_kdubu")]
 position = Vector2(208, -3068)
+
+[node name="Boss" parent="." unique_id=399143101 instance=ExtResource("5_q6r6c")]
+position = Vector2(1115, 288)

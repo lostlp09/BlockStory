@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cp43fum8ghq0h"]
+
+[ext_resource type="Script" uid="uid://d1twdckjskwhn" path="res://Shockwave.gd" id="1_ijibe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jyrm"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5o1u"]
+size = Vector2(48, 48)
+
+[node name="ShockWave" type="Node2D" unique_id=2105005530]
+script = ExtResource("1_ijibe")
+
+[node name="Left" type="Area2D" parent="." unique_id=92575180]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=439007556]
+position = Vector2(-24, 0)
+shape = SubResource("RectangleShape2D_0jyrm")
+
+[node name="ColorRect" type="ColorRect" parent="Left" unique_id=414481160]
+offset_left = -48.0
+offset_top = -24.0
+offset_bottom = 24.0
+color = Color(0, 0.62352943, 0.89411765, 1)
+
+[node name="Right" type="Area2D" parent="." unique_id=325206395]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=1394249633]
+position = Vector2(24, 0)
+shape = SubResource("RectangleShape2D_w5o1u")
+
+[node name="ColorRect" type="ColorRect" parent="Right" unique_id=1392739277]
+offset_top = -24.0
+offset_right = 48.0
+offset_bottom = 24.0
+color = Color(0, 0.62290215, 0.8960193, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1920169921]

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c3oynikilipkb"]
+
+[ext_resource type="Texture2D" uid="uid://ba3da0dka0sit" path="res://Polygon 8.png" id="1_e3b7o"]
+[ext_resource type="Script" uid="uid://dafsnqxl1rsv0" path="res://spieketrap.gd" id="2_kfk6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14f15"]
+size = Vector2(400, 500)
+
+[node name="Sprite2D" type="Sprite2D" unique_id=799889387]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_e3b7o")
+script = ExtResource("2_kfk6e")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1802387024]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=214160930]
+position = Vector2(0, 50)
+shape = SubResource("RectangleShape2D_14f15")

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://5f5f1bqcdv4d"]
+
+[ext_resource type="Script" uid="uid://dvdoc2lkv65lm" path="res://Bullet.gd" id="1_ayd6b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayd6b"]
+size = Vector2(20, 42.826088)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1465977666]
+scale = Vector2(4.6, 4.6)
+script = ExtResource("1_ayd6b")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1674954806]
+offset_left = -9.565217
+offset_top = -33.26087
+offset_right = 10.434783
+offset_bottom = -13.260872
+scale = Vector2(1, 2.14)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1262026800]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1428588527]
+position = Vector2(0, -11.630435)
+shape = SubResource("RectangleShape2D_ayd6b")

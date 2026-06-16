@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://r2hhrjyuud55"]
+
+[ext_resource type="Script" uid="uid://bkcw3aqdbw23q" path="res://BossScript.gd" id="1_f50pn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ij6vw"]
+size = Vector2(14.9246025, 14.9246025)
+
+[node name="Boss" type="CharacterBody2D" unique_id=399143101 groups=["Enemy"]]
+position = Vector2(-119.99999, -58.999996)
+scale = Vector2(10, 10)
+script = ExtResource("1_f50pn")
+
+[node name="KnockBackARea" type="Area2D" parent="." unique_id=1423133232]
+position = Vector2(-0.2, 0)
+scale = Vector2(0.67, 0.67)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KnockBackARea" unique_id=863301581]
+scale = Vector2(1.985, 1.985)
+shape = SubResource("RectangleShape2D_ij6vw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1435939795]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0

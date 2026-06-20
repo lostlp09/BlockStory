@@ -4,17 +4,22 @@
 [ext_resource type="Texture2D" uid="uid://b1x1m24lwuisq" path="res://icon.svg" id="2_emwjj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1t3na"]
-size = Vector2(5.2245865, 5.319149)
+size = Vector2(136, 136)
 
 [node name="Enemybullet" type="Node2D" unique_id=1642264752 groups=["Enemy"]]
-scale = Vector2(10.575, 10.575)
+scale = Vector2(0.155, 0.155)
 script = ExtResource("1_pp05e")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1060748753]
-scale = Vector2(0.019531248, 0.019531261)
 texture = ExtResource("2_emwjj")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=410673493]
 
 [node name="EnemyBulletARea" type="CollisionShape2D" parent="Area2D" unique_id=1928836129]
 shape = SubResource("RectangleShape2D_1t3na")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1944828468]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0

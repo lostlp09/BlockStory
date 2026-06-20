@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://hpivl2cefr1u"]
+
+[ext_resource type="Script" uid="uid://yywxwelgmpmn" path="res://player_g_ui.gd" id="1_tedeu"]
+[ext_resource type="Theme" uid="uid://bw33ya7ajjkkj" path="res://healtbarTheme.tres" id="2_it1ku"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_it1ku"]
+
+[sub_resource type="Theme" id="Theme_shmnq"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_it1ku")
+ProgressBar/styles/fill = null
+
+[node name="PlayerGUi" type="Control" unique_id=2063124396]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tedeu")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=219786453]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 37.0
+offset_right = 378.0
+offset_bottom = 64.0
+theme = ExtResource("2_it1ku")
+
+[node name="ProgressBar2" type="ProgressBar" parent="." unique_id=1490037414]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 80.0
+offset_right = 178.0
+offset_bottom = 107.0
+theme = SubResource("Theme_shmnq")
+show_percentage = false

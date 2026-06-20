@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b840dtjb63wv7"]
+
+[ext_resource type="Theme" uid="uid://bw33ya7ajjkkj" path="res://healtbarTheme.tres" id="1_es4pf"]
+[ext_resource type="Script" uid="uid://dw2lx4ftu5tmh" path="res://progress_bar.gd" id="1_f5yoo"]
+
+[node name="BossUi" type="Control" unique_id=708118914]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1539019214]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 94.0
+offset_right = 823.0
+offset_bottom = 121.0
+theme = ExtResource("1_es4pf")
+max_value = 1000.0
+value = 936.48
+show_percentage = false
+script = ExtResource("1_f5yoo")
+
+[node name="Label" type="Label" parent="ProgressBar" unique_id=899598850]
+layout_mode = 0
+offset_right = 504.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "1000/1000"
+horizontal_alignment = 1

@@ -11,7 +11,6 @@ scale = Vector2(10, 10)
 script = ExtResource("1_f50pn")
 
 [node name="KnockBackARea" type="Area2D" parent="." unique_id=1423133232]
-position = Vector2(-0.2, 0)
 scale = Vector2(0.67, 0.67)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KnockBackARea" unique_id=863301581]
@@ -23,3 +22,4 @@ offset_left = -10.0
 offset_top = -10.0
 offset_right = 10.0
 offset_bottom = 10.0
+color = Color(0.007843138, 0.24313726, 0.5411765, 1)

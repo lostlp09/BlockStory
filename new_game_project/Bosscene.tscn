@@ -2,10 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://r2hhrjyuud55" path="res://BigBoss.tscn" id="1_0vb12"]
 [ext_resource type="Script" uid="uid://caufakp57riq5" path="res://Walltracker.gd" id="1_icicd"]
-[ext_resource type="Script" uid="uid://dw2lx4ftu5tmh" path="res://progress_bar.gd" id="2_655ca"]
 [ext_resource type="Script" uid="uid://dc2tyapas16kr" path="res://player.gd" id="3_2rut4"]
 [ext_resource type="Script" uid="uid://bex0genodabg7" path="res://ability.gd" id="4_icicd"]
 [ext_resource type="Script" uid="uid://cqi2vca8qde7a" path="res://normal_combat.gd" id="5_o7v3h"]
+[ext_resource type="PackedScene" uid="uid://b840dtjb63wv7" path="res://boss_ui.tscn" id="6_6jr54"]
+[ext_resource type="Texture2D" uid="uid://dmtuusljd44ep" path="res://Shard1.png" id="8_6jr54"]
+[ext_resource type="Texture2D" uid="uid://u5w1u1k4fikk" path="res://shard3.png" id="9_kve1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jr54"]
 size = Vector2(129.41174, 129.41174)
@@ -25,20 +27,24 @@ script = ExtResource("1_icicd")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1755654033]
 
 [node name="Boss" parent="." unique_id=399143101 instance=ExtResource("1_0vb12")]
-position = Vector2(-588, 258)
-scale = Vector2(5, 5)
+z_index = 17
+position = Vector2(-543.00006, 227)
+scale = Vector2(8.285, 8.285)
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1217168251 groups=["player"]]
+unique_name_in_owner = true
+z_index = 48
 position = Vector2(485.9999, 279)
 scale = Vector2(0.425, 0.425)
 script = ExtResource("3_2rut4")
 
 [node name="ColorRect" type="ColorRect" parent="Player" unique_id=798207582]
+unique_name_in_owner = true
 offset_left = -65.882355
 offset_top = -63.529415
 offset_right = 64.117645
 offset_bottom = 66.47058
-color = Color(0, 0.8862745, 0.9137255, 1)
+color = Color(0, 0.5882353, 0.78039217, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2143860510]
 position = Vector2(-1.1764688, 1.1764717)
@@ -56,9 +62,11 @@ scale = Vector2(1, 26.43)
 target_position = Vector2(-75, 0)
 
 [node name="Abilitys" type="Node2D" parent="Player" unique_id=415924572]
+visible = false
 script = ExtResource("4_icicd")
 
 [node name="normalCombat" type="Node2D" parent="Player" unique_id=280491269]
+visible = false
 script = ExtResource("5_o7v3h")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=114774663]
@@ -68,10 +76,11 @@ position = Vector2(-696, 308)
 offset_left = -237.0
 offset_right = 1815.0
 offset_bottom = 361.0
+color = Color(0, 0.46666667, 0.7137255, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=576173061]
-position = Vector2(791, 181.5)
+position = Vector2(796, 182)
 shape = SubResource("RectangleShape2D_rm3de")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=762155426 groups=["Wall"]]
@@ -82,6 +91,7 @@ scale = Vector2(0.08, 2.405)
 offset_left = -237.0
 offset_right = 1815.0
 offset_bottom = 361.0
+color = Color(0, 0.46666667, 0.7137255, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1976157178]
@@ -102,6 +112,7 @@ scale = Vector2(0.08, 2.405)
 offset_left = -237.0
 offset_right = 1815.0
 offset_bottom = 361.0
+color = Color(0, 0.46666667, 0.7137255, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=122756891]
 position = Vector2(791, 181.5)
@@ -115,26 +126,7 @@ shape = SubResource("RectangleShape2D_rm3de")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1144213422]
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=2006012962]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=597248577]
-layout_mode = 0
-offset_left = 319.0
-offset_top = 94.0
-offset_right = 823.0
-offset_bottom = 121.0
-max_value = 1000.0
-show_percentage = false
-script = ExtResource("2_655ca")
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/ProgressBar" unique_id=691643046]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="BossUi" parent="CanvasLayer" unique_id=708118914 instance=ExtResource("6_6jr54")]
 
 [node name="Nearwall" type="Area2D" parent="." unique_id=1239167246]
 
@@ -145,3 +137,76 @@ shape = SubResource("RectangleShape2D_o7v3h")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Nearwall" unique_id=1043070930]
 position = Vector2(968, 38)
 shape = SubResource("RectangleShape2D_o7v3h")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=937985189]
+z_index = -61
+offset_left = -1762.0
+offset_top = -1268.0
+offset_right = 2099.0
+offset_bottom = 1076.0
+color = Color(0.5647059, 0.8784314, 0.9372549, 1)
+
+[node name="Backgrounddecoration" type="Node2D" parent="." unique_id=295516005]
+
+[node name="Shard1" type="Sprite2D" parent="Backgrounddecoration" unique_id=287585976]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+z_index = -11
+position = Vector2(45, -225)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("8_6jr54")
+
+[node name="Shard2" type="Sprite2D" parent="Backgrounddecoration" unique_id=1567639575]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+z_index = -11
+position = Vector2(156, 29.999985)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("8_6jr54")
+
+[node name="Shard4" type="Sprite2D" parent="Backgrounddecoration" unique_id=644040848]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+z_index = -11
+position = Vector2(654, 31.000015)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("8_6jr54")
+
+[node name="Shard8" type="Sprite2D" parent="Backgrounddecoration" unique_id=1083411274]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+z_index = -11
+position = Vector2(706, -267.99994)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("8_6jr54")
+
+[node name="Shard3" type="Sprite2D" parent="Backgrounddecoration" unique_id=620469695]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+z_index = -11
+position = Vector2(-220.99994, -43.000023)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("8_6jr54")
+
+[node name="Shard5" type="Sprite2D" parent="Backgrounddecoration" unique_id=1781574712]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+z_index = -11
+position = Vector2(-400, -194)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("9_kve1u")
+
+[node name="Shard6" type="Sprite2D" parent="Backgrounddecoration" unique_id=1795498898]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+z_index = -11
+position = Vector2(337.00003, -124.00001)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("9_kve1u")
+
+[node name="Shard7" type="Sprite2D" parent="Backgrounddecoration" unique_id=1480275639]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+z_index = -11
+position = Vector2(336.00003, 205)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("9_kve1u")
+
+[node name="Shard9" type="Sprite2D" parent="Backgrounddecoration" unique_id=352307302]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+z_index = -11
+position = Vector2(-360.00003, 107.99997)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("9_kve1u")

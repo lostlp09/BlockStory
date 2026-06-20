@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://com1b1wgwlacw"]
+
+[sub_resource type="Curve" id="Curve_tfuhp"]
+_data = [Vector2(0, 0), 0.0, 3.776372, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Deadparticle" type="Node2D" unique_id=2029373354]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=456549875]
+amount = 24
+lifetime = 0.32
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 12.38
+initial_velocity_max = 330.57
+radial_accel_max = 100.0
+damping_max = 33.334
+damping_curve = SubResource("Curve_tfuhp")
+angle_max = 91.3
+scale_amount_min = 10.0
+scale_amount_max = 20.0
+color = Color(0, 0.5882353, 0.78039217, 1)

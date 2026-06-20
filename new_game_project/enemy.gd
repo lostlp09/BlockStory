@@ -5,9 +5,11 @@ var direction = 1
 @export var Health = 100
 var CanAttack = true
 var PlayerIsIn = false
+@export var Speed = 100
+@export var time = 1
 var EnemyBullet = preload("res://Enemybullet.tscn")
 func ChangeDirection():
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(time).timeout
 	direction *=-1
 	ChangeDirection()
 
@@ -30,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		self.get_parent().add_child(bullet)
 		bullet.position = self.position
 		
-	self.velocity.x = move_toward(self.velocity.x,100 * direction,10)
+	self.velocity.x = move_toward(self.velocity.x,Speed * direction,10)
 	
 	move_and_slide()
 func GetDamage(Amount ):
@@ -42,7 +44,7 @@ func Enemyentered(Body):
 	print(Body)
 	if Body.is_in_group("player"):
 		var direction = (Body.position - self.position).normalized()
-		Body.playerKnockback(direction,800)
+		Body.playerKnockBackStun(direction,800)
 		Body.GetDamage(10)
 		print(Body.Health)
 		print(direction)

@@ -90,7 +90,7 @@ func  randomattack():
 				print("SpikeAttack")
 				SpikeAttack()
 				break
-			if abs(player.position.x - self.position.x) > 200 :
+			if abs(player.position.x - self.position.x) > 300 :
 				JumpToPlayer(player.position,self.position,self.position.y)
 				break
 		elif randomnumber ==1:
@@ -104,8 +104,8 @@ func  randomattack():
 func  SpikeAttack():
 	var SpikeClone = Spike.instantiate()
 	World.add_child(SpikeClone)
-	SpikeClone.position = Vector2(player.position.x,player.position.y +110)
-	SpikeClone.launch(self.position.y + 110)
+	SpikeClone.position = Vector2(player.position.x,365)
+	SpikeClone.launch(365)
 	await get_tree().create_timer(1).timeout
 	Abilityended.emit()
 	

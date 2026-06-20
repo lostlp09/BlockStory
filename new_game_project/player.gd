@@ -8,6 +8,9 @@ var AllowedToDash = true
 @onready var World = $".."
 @onready var RayCast =  $RayCast2D
 @onready var PlayerArea = $PlayerArea
+var deathscreen = preload("res://Deathscene.tscn")
+var deathparticle = preload("res://Deadparticle.tscn")
+var dead = false
 var OnWall = false
 var Gravity = 30
 var Knockback = false
@@ -19,6 +22,10 @@ func _ready() -> void:
 			self.velocity.y = 0)
 	PlayerArea.area_exited.connect(func (area): OnWall = false)
 func _physics_process(delta: float) -> void:
+	if dead:
+		self.velocity = Vector2.ZERO
+		move_and_slide()
+		return
 	if is_on_floor():
 		if not isDashing:
 			AllowedToDash = true
@@ -42,11 +49,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		if self.is_on_floor():
 			self.velocity.y = -900  
-		elif OnWall:
+		elif OnWall:	
 			var PositiveOrNegative = -1
 			if RayCast.is_colliding():
 				PositiveOrNegative = 1
-			self.velocity = Vector2(PositiveOrNegative *  800,-800)
+			self.velocity = Vector2(PositiveOrNegative *  900,-1000)
 			OnWall = false
 	if Input.is_action_just_pressed("Dash") and  not isDashing and AllowedToDash and not Stunned:
 		print("run")
@@ -80,7 +87,7 @@ func playerKnockBackStun(direction,Strengh):
 		self.velocity = direction * Strengh
 		await  get_tree().physics_frame
 		Knockback = false
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.1).timeout
 		Stunned = false
 func playerKnockBack(direction,Strengh):
 		Knockback = true
@@ -91,10 +98,26 @@ func playerKnockBack(direction,Strengh):
 func  GetDamage(Amount):
 	Health -= Amount
 	if Health <= 0:
-		print("gameOver ")
-func  Kill():
-	Health = 100
-	self.position = Vector2(0,0)
+		Kill()
+func Kill():
+	self.Health = 0
+	if dead:return
+	dead = true
+	var clone = deathscreen.instantiate()
+	var particle = deathparticle.instantiate()
+	clone.process_mode = Node.PROCESS_MODE_ALWAYS
+	particle.position = self.position
+	World.call_deferred("add_child",particle)
+	var particleEmitter:CPUParticles2D = particle.get_node("CPUParticles2D")
+	%ColorRect.visible = false
+	await  get_tree().create_timer(0.5).timeout
+	particleEmitter.emitting = false
+	await  get_tree().create_timer(0.5).timeout
+	World.add_child(clone)
+	World.set_deferred("process_mode",Node.ProcessMode.PROCESS_MODE_DISABLED)
+	
+
+
 	
 	
 	

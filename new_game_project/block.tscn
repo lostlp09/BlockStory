@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ccj64j4grfner"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
+size = Vector2(1300, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qncar"]
+size = Vector2(1300, 290)
+
+[node name="Block" type="StaticBody2D" unique_id=298802515]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1716954978]
+offset_right = 1300.0
+offset_bottom = 320.0
+color = Color(0, 0.46666667, 0.7137255, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1020030121]
+visible = false
+position = Vector2(650, 160)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="WallArea" type="Area2D" parent="." unique_id=662428238 groups=["Wall"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallArea" unique_id=47262801]
+visible = false
+position = Vector2(650, 163)
+shape = SubResource("RectangleShape2D_qncar")

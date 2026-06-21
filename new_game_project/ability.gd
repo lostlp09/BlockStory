@@ -1,5 +1,5 @@
 extends Node2D
-
+@onready var playergui =$"../../CanvasLayer/PlayerGUi"
 @onready var World = $"../.."
 @onready var player = $".."
 const BeamEffect = preload("res://beameffekt.tscn")
@@ -11,6 +11,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Beam"):
 		if AllowToBeam:
+			playergui.reloadAbility()
 			Beam()
 			
 	

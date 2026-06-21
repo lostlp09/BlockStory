@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://bw33ya7ajjkkj" path="res://healtbarTheme.tres" id="2_it1ku"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_it1ku"]
+bg_color = Color(0.39719057, 0.3961694, 1, 1)
 
 [sub_resource type="Theme" id="Theme_shmnq"]
 ProgressBar/styles/background = SubResource("StyleBoxFlat_it1ku")
@@ -26,7 +27,7 @@ offset_right = 378.0
 offset_bottom = 64.0
 theme = ExtResource("2_it1ku")
 
-[node name="ProgressBar2" type="ProgressBar" parent="." unique_id=1490037414]
+[node name="abilitybar" type="ProgressBar" parent="." unique_id=1490037414]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 80.0
@@ -34,3 +35,10 @@ offset_right = 178.0
 offset_bottom = 107.0
 theme = SubResource("Theme_shmnq")
 show_percentage = false
+
+[node name="Label" type="Label" parent="abilitybar" unique_id=419293639]
+layout_mode = 0
+offset_right = 165.0
+offset_bottom = 23.0
+text = "Beam"
+horizontal_alignment = 1

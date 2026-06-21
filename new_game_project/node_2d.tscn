@@ -72,12 +72,28 @@ position = Vector2(1363, -467)
 scale = Vector2(0.19, 2.2800004)
 
 [node name="Block7" parent="Map/Blocks" unique_id=1240501441 instance=ExtResource("4_kdubu")]
-position = Vector2(1134, -1437)
+position = Vector2(1108, -1403.9999)
 scale = Vector2(0.106375806, 2.2800004)
 
+[node name="Block10" parent="Map/Blocks" unique_id=39894445 instance=ExtResource("4_kdubu")]
+position = Vector2(-158.00005, -1475.9999)
+scale = Vector2(0.42637548, 0.32000053)
+
+[node name="Block12" parent="Map/Blocks" unique_id=749100644 instance=ExtResource("4_kdubu")]
+position = Vector2(-152, -1843)
+scale = Vector2(0.266375, 0.12000053)
+
+[node name="Block13" parent="Map/Blocks" unique_id=288759885 instance=ExtResource("4_kdubu")]
+position = Vector2(312, -1907)
+scale = Vector2(0.266375, 0.12000053)
+
+[node name="Block11" parent="Map/Blocks" unique_id=550908420 instance=ExtResource("4_kdubu")]
+position = Vector2(-382, -2064)
+scale = Vector2(0.106375515, 1.9599996)
+
 [node name="Block9" parent="Map/Blocks" unique_id=1350249368 instance=ExtResource("4_kdubu")]
-position = Vector2(604, -1314)
-scale = Vector2(0.3542872, 0.049645584)
+position = Vector2(452, -1358)
+scale = Vector2(0.2984182, 0.11864152)
 
 [node name="Block3" parent="Map/Blocks" unique_id=329699719 instance=ExtResource("4_kdubu")]
 position = Vector2(933.00006, 13)
@@ -121,28 +137,25 @@ time = 2
 position = Vector2(855, -688)
 
 [node name="Node2D3" parent="." unique_id=1449949106 instance=ExtResource("5_kdubu")]
-position = Vector2(636, -1336)
+position = Vector2(484, -1380)
 
 [node name="Node2D4" parent="." unique_id=11408230 instance=ExtResource("5_kdubu")]
-position = Vector2(692, -1336)
+position = Vector2(540, -1380)
 
 [node name="Node2D5" parent="." unique_id=757735701 instance=ExtResource("5_kdubu")]
-position = Vector2(748, -1336.76)
+position = Vector2(596, -1380.76)
 
 [node name="Node2D6" parent="." unique_id=1878557596 instance=ExtResource("5_kdubu")]
-position = Vector2(803, -1336)
+position = Vector2(651, -1380)
 
 [node name="Node2D7" parent="." unique_id=276073033 instance=ExtResource("5_kdubu")]
-position = Vector2(857, -1336)
+position = Vector2(705, -1380)
 
 [node name="Node2D8" parent="." unique_id=419459247 instance=ExtResource("5_kdubu")]
-position = Vector2(912, -1336)
+position = Vector2(760, -1380)
 
 [node name="Node2D9" parent="." unique_id=134429156 instance=ExtResource("5_kdubu")]
-position = Vector2(967, -1336)
-
-[node name="Node2D10" parent="." unique_id=739776711 instance=ExtResource("5_kdubu")]
-position = Vector2(1021, -1336)
+position = Vector2(815, -1380)
 
 [node name="Node2D2" parent="." unique_id=697620591 instance=ExtResource("5_kdubu")]
 position = Vector2(1050, -690)

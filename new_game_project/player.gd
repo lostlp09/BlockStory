@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var playergui =$"../CanvasLayer/PlayerGUi"
 const MaxVelocity_X = 600
 @onready var Camera = $"../Camera2D"
 const MaxGravity = -40

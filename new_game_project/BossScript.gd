@@ -117,7 +117,7 @@ func  randomattack():
 				print("SpikeAttack")
 				SpikeAttack()
 				break
-			elif distance > 200 :
+			elif distance > 500 :
 				JumpToPlayer(player.position,self.position,self.position.y)
 				break
 			else:

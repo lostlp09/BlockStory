@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bkab1gfdle2ib"]
+
+[ext_resource type="AudioStream" uid="uid://nkn28mmbnabj" path="res://GenericKillDeathTerrariaSound-SoundEffectforediting.wav" id="1_ivvgi"]
+[ext_resource type="Script" uid="uid://b1xae3ystujtn" path="res://jumpsound.gd" id="2_vschc"]
+
+[node name="Jumpsound" type="AudioStreamPlayer2D" unique_id=831103219]
+stream = ExtResource("1_ivvgi")
+script = ExtResource("2_vschc")

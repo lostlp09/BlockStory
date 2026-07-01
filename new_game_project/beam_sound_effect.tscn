@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ccd15jqth8q5e"]
+
+[ext_resource type="AudioStream" uid="uid://dliyvn4tj0msg" path="res://freesound_gamestudio-hero-skill-attack-reveal-3-384974.mp3" id="1_d3fgx"]
+[ext_resource type="Script" uid="uid://b1xae3ystujtn" path="res://jumpsound.gd" id="2_6s7jp"]
+
+[node name="BeamSoundEffect" type="AudioStreamPlayer2D" unique_id=831103219]
+stream = ExtResource("1_d3fgx")
+script = ExtResource("2_6s7jp")

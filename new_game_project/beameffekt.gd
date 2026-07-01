@@ -5,8 +5,9 @@ extends Node2D
 func _ready() -> void:
 	var originalPanelSize = Pan.size
 	var originalPanelPos = Pan.position
-	var timer = get_tree().create_timer(0.5)
+	var timer = get_tree().create_timer(0.5,false)
 	while  timer.time_left != 0:
+		if not is_inside_tree():return
 		print(timer.time_left)
 		var returnValue =  (1 - sigmoid(1- 2*timer.time_left))
 		Pan.size.y = returnValue * originalPanelSize.y

@@ -4,6 +4,7 @@ var wasin = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	%Area2D.body_entered.connect(bodyentered)
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame
 func bodyentered(Body):
@@ -12,15 +13,22 @@ func bodyentered(Body):
 		Body.GetDamage(10)
 
 func launch(Hight):
+	self.process_mode = Node.PROCESS_MODE_INHERIT
 	var OldHight = Hight
+	await get_tree().create_timer(1).timeout
+	%Warning.queue_free()
 	var timer = get_tree().create_timer(1)
 	while  timer.time_left > 0 :
+			if not is_inside_tree() :
+				break
 			self.position.y =  ease(1- timer.time_left,0.2) * -100+ OldHight
 			await  get_tree().process_frame
 	self.position.y = OldHight -100
 	OldHight = self.position.y
 	timer = get_tree().create_timer(1)
 	while  timer.time_left > 0 :
+		if not is_inside_tree() :
+				break
 		self.position.y =  ease(1- timer.time_left,0.2) * 100 +OldHight
 		await  get_tree().process_frame
 	self.position.y = OldHight +100

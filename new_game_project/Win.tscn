@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://qls5csqtw8dh"]
+
+[ext_resource type="FontFile" uid="uid://dmo1gtfjvqkib" path="res://PixelifySans-VariableFont_wght.ttf" id="1_j64cp"]
+[ext_resource type="Theme" uid="uid://5wa3d2rvoqkt" path="res://ButtonTheme.tres" id="2_ijtj1"]
+[ext_resource type="Script" uid="uid://0t1onxuvvxsb" path="res://button.gd" id="3_tplom"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bawp4"]
+font = ExtResource("1_j64cp")
+font_size = 197
+
+[node name="Control" type="Control" unique_id=483231672]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1843023622]
+layout_mode = 0
+offset_right = 30.046194
+offset_bottom = 30.977486
+scale = Vector2(38.340965, 20.918419)
+color = Color(0.28627452, 0.7882353, 0.8901961, 1)
+
+[node name="Label" type="Label" parent="." unique_id=936728578]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 299.0
+text = "You Won"
+label_settings = SubResource("LabelSettings_bawp4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1674902122]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 299.0
+offset_right = 1075.0
+offset_bottom = 605.0
+scale = Vector2(0.67, 0.67)
+theme = ExtResource("2_ijtj1")
+theme_override_font_sizes/font_size = 79
+text = "Go Back To Menue"
+script = ExtResource("3_tplom")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

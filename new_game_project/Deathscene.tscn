@@ -2,13 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cbap3q7linslq" path="res://DeathScene.gd" id="1_2ksqu"]
 [ext_resource type="Theme" uid="uid://5wa3d2rvoqkt" path="res://ButtonTheme.tres" id="1_rjc10"]
+[ext_resource type="FontFile" uid="uid://dmo1gtfjvqkib" path="res://PixelifySans-VariableFont_wght.ttf" id="3_6ji30"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6ji30"]
-font_size = 90
-outline_size = 16
+font = ExtResource("3_6ji30")
+font_size = 111
 outline_color = Color(0.3515629, 0.3515629, 0.35156286, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=497292191]
+process_mode = 3
 script = ExtResource("1_2ksqu")
 
 [node name="Control" type="Control" parent="." unique_id=585971489]
@@ -26,6 +28,7 @@ offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Control" unique_id=1016241755]
 layout_mode = 0
@@ -34,22 +37,29 @@ offset_top = 91.0
 offset_right = 996.0
 offset_bottom = 535.0
 color = Color(0, 0.46666667, 0.7137255, 1)
-
-[node name="ReplayButton" type="Button" parent="Control" unique_id=294582274]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 405.0
-offset_top = 413.0
-offset_right = 728.0
-offset_bottom = 494.0
-theme = ExtResource("1_rjc10")
-text = "Replay"
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Control" unique_id=1230874847]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.012575889
+anchor_top = -0.046296295
+anchor_right = 0.030789245
+anchor_bottom = -0.029320987
 offset_left = 381.0
 offset_top = 161.0
 offset_right = 758.0
 offset_bottom = 285.0
 text = "You died"
 label_settings = SubResource("LabelSettings_6ji30")
+metadata/_edit_use_anchors_ = true
+
+[node name="ReplayButton" type="Button" parent="Control" unique_id=49139748]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 405.5
+offset_top = 413.0
+offset_right = 727.5
+offset_bottom = 495.0
+theme = ExtResource("1_rjc10")
+text = "Replay"

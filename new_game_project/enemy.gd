@@ -3,6 +3,7 @@ var direction = 1
 @onready var EnemyArea = $Area2D
 @onready var NearbyArea = $NearbyArea
 @export var Health = 100
+@export var MaxHP = 100
 var CanAttack = true
 var PlayerIsIn = false
 @export var Speed = 100
@@ -18,16 +19,24 @@ func _ready() -> void:
 	EnemyArea.body_entered.connect(Enemyentered)
 	NearbyArea.body_entered.connect(PlayerNearBy)
 	NearbyArea.body_exited.connect(PlayerExit)
+	%Healthbar.max_value = 50
 	ChangeDirection()
 	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	self.velocity.y = 300
+	move_and_slide()
+	if Health != MaxHP:
+		%Healthbar.visible = true
+		%Healthbar.max_value = MaxHP
+		%Healthbar.value = Health
+		
 	if PlayerIsIn and CanAttack :
 		print("Attacke")
 		CanAttack = false
-		get_tree().create_timer(2).timeout.connect(func ():CanAttack = true)
+		get_tree().create_timer(3).timeout.connect(func ():CanAttack = true)
 		var bullet=  EnemyBullet.instantiate()
 		self.get_parent().add_child(bullet)
 		bullet.position = self.position

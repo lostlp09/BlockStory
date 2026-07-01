@@ -9,6 +9,7 @@ bg_color = Color(0.9032311, 0.87506336, 1.540184e-06, 1)
 script = ExtResource("1_yjyjv")
 
 [node name="Panel" type="Panel" parent="." unique_id=177556191]
+z_index = 700
 offset_left = -1000.0
 offset_top = -30.0
 offset_right = 1000.0

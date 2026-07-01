@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://8cl5w8s1oym2"]
+
+[ext_resource type="AudioStream" uid="uid://bbui6ybrdky7k" path="res://sunovia-silver-chime-290187.mp3" id="1_m1kvt"]
+[ext_resource type="Script" uid="uid://b1xae3ystujtn" path="res://jumpsound.gd" id="2_gd04o"]
+
+[node name="CheckpointSound" type="AudioStreamPlayer2D" unique_id=831103219]
+stream = ExtResource("1_m1kvt")
+script = ExtResource("2_gd04o")

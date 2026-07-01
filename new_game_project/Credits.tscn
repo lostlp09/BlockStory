@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://bcucvo3g7hyie"]
+
+[ext_resource type="Script" uid="uid://dy0sf5n1rchur" path="res://input_settings.gd" id="1_4qwwl"]
+[ext_resource type="FontFile" uid="uid://dmo1gtfjvqkib" path="res://PixelifySans-VariableFont_wght.ttf" id="2_obosj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xcig2"]
+font = ExtResource("2_obosj")
+font_size = 46
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o25xp"]
+bg_color = Color(0.6, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uvf4r"]
+font = ExtResource("2_obosj")
+font_size = 31
+
+[node name="Control" type="Control" unique_id=475211887]
+process_mode = 3
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 212.0
+offset_top = 128.0
+offset_right = -245.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4qwwl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=268354184]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 1152.066
+offset_bottom = 684.9504
+scale = Vector2(0.605, 0.605)
+color = Color(0.32941177, 0.64705884, 0.8352941, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1313859273]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 695.0
+offset_bottom = 60.0
+text = "Credits"
+label_settings = SubResource("LabelSettings_xcig2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=299380255]
+process_mode = 3
+layout_mode = 0
+offset_left = 645.0
+offset_right = 695.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_o25xp")
+text = "X"
+
+[node name="Label2" type="Label" parent="." unique_id=1922414297]
+layout_mode = 0
+offset_top = 74.0
+offset_right = 1314.0
+offset_bottom = 973.0
+scale = Vector2(0.53, 0.53)
+text = "Developer: lostlp09 
+Tester: Username3D
+DeathSound /DamageSound Creator: Re-Logic(Scott Lloyd Shelly)
+JumpSound
+DashSoundEffect : UniversfieldPixabay)
+CheckPointSound : SunoviaPixabay)
+AttackSoundEffect :UniversfieldPixabay)
+BossFightMusic : junipersona(Pixabay)
+NormalMusic : the_mountain_game(Pixabay)
+BossImpact: dragon-studio(Pixabay)
+Beam:freesound_gamestudio
+Im not earning any money with this project.I created this game for Hackclub .
+If sb from the sound creator doenst want to be in the game i can take this game down.
+Thx for reading the credits :)
+
+
+
+
+
+
+
+
+"
+label_settings = SubResource("LabelSettings_uvf4r")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

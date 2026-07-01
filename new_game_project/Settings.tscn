@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://cpl0d2f2tmcxt"]
+
+[ext_resource type="Script" uid="uid://dnmo6xdskhgvl" path="res://settings.gd" id="1_2fv1l"]
+[ext_resource type="FontFile" uid="uid://dmo1gtfjvqkib" path="res://PixelifySans-VariableFont_wght.ttf" id="1_bvb5x"]
+[ext_resource type="Theme" uid="uid://5wa3d2rvoqkt" path="res://ButtonTheme.tres" id="3_mx4kw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mx4kw"]
+font = ExtResource("1_bvb5x")
+font_size = 19
+
+[sub_resource type="LabelSettings" id="LabelSettings_37a8j"]
+font = ExtResource("1_bvb5x")
+
+[sub_resource type="LabelSettings" id="LabelSettings_2fv1l"]
+font = ExtResource("1_bvb5x")
+font_size = 65
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fv1l"]
+bg_color = Color(0.8489232, 0, 0.0927796, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=407846436]
+process_mode = 3
+script = ExtResource("1_2fv1l")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=179022865]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -175.0
+offset_right = 288.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(288, 175)
+color = Color(0.32941177, 0.64705884, 0.8352941, 1)
+
+[node name="HSlider" type="HSlider" parent="ColorRect" unique_id=1418714182]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 163.0
+offset_top = 171.0
+offset_right = 307.9367
+offset_bottom = 187.0
+scale = Vector2(1.58, 1.58)
+value = 100.0
+
+[node name="name" type="Label" parent="ColorRect/HSlider" unique_id=1320848061]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 39.240513
+offset_top = -26.582275
+offset_right = 102.24051
+offset_bottom = 3.4177246
+text = "Volume"
+label_settings = SubResource("LabelSettings_mx4kw")
+
+[node name="Value" type="Label" parent="ColorRect/HSlider" unique_id=1510321596]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 144.93672
+offset_right = 170.93672
+offset_bottom = 23.000002
+text = "100"
+label_settings = SubResource("LabelSettings_37a8j")
+
+[node name="Volume" type="Label" parent="ColorRect" unique_id=1705428632]
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 145.0
+text = "Settings"
+label_settings = SubResource("LabelSettings_2fv1l")
+horizontal_alignment = 1
+
+[node name="Exit" type="Button" parent="ColorRect" unique_id=17674316]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 521.0
+offset_right = 576.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 37
+theme_override_styles/normal = SubResource("StyleBoxFlat_2fv1l")
+text = "X"
+
+[node name="GoBackTOMenue" type="Button" parent="ColorRect" unique_id=814206536]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 149.0
+offset_top = 252.0
+offset_right = 443.0
+offset_bottom = 315.0
+theme = ExtResource("3_mx4kw")
+text = "Go Back To Menue"

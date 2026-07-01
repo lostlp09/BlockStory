@@ -1,5 +1,6 @@
 extends Node
 var PlayerData = {"Checkpoint":0}
+var Health = 100
 func _ready() -> void:
 	PlayerData = LoadData()
 	print(PlayerData)
@@ -7,7 +8,8 @@ func _ready() -> void:
 	
 	
 func  DeleteData():
-	PlayerData = {"Checkpoint":0}
+	PlayerData = {"Checkpoint":0,"Volume":PlayerData["Volume"]}
+	print(PlayerData)
 	SaveData()
 	
 

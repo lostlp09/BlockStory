@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cwtt0r1yqkmjc"]
+
+[ext_resource type="AudioStream" uid="uid://csavb6nt4rtcb" path="res://dragon-studio-hard-heavy-impact-515256.mp3" id="1_783c2"]
+[ext_resource type="Script" uid="uid://b1xae3ystujtn" path="res://jumpsound.gd" id="2_xhvwc"]
+
+[node name="Impact" type="AudioStreamPlayer2D" unique_id=831103219]
+stream = ExtResource("1_783c2")
+script = ExtResource("2_xhvwc")

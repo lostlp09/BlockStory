@@ -5,12 +5,14 @@ func sigmoid(x) -> float:
 		
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	%AudioStreamPlayer2D.volume_db = -100 +SaveStats.PlayerData["Volume"]
 	var timer  = get_tree().create_timer(0.5)
 	await  get_tree().process_frame
 
 	var currentRotation = self.rotation_degrees
 	var GoalRotation  = currentRotation +90
 	while timer.time_left != 0 :
+		if not get_tree():return
 		var calculation = sigmoid(1 - timer.time_left * 2)
 		texture.modulate.a = 1-calculation
 		self.rotation_degrees =  currentRotation + 90* calculation

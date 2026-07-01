@@ -26,7 +26,8 @@ func _physics_process(delta: float) -> void:
 		await  get_tree().physics_frame
 		var GiveKnockback = true
 		for AreaObject in Area.get_overlapping_areas():
-			if AreaObject.get_parent().is_in_group("Enemy") and GiveKnockback and not AreaObject.is_in_group("NoHitBox"):
+			if AreaObject.is_in_group("NoHitBox"):continue
+			if AreaObject.get_parent().is_in_group("Enemy") and GiveKnockback:
 				print("test")
 				var NewDirection = (AreaObject.get_parent().position - player.position).normalized() * -1
 				player.playerKnockBack(NewDirection ,600)

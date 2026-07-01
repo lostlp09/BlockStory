@@ -1,25 +1,29 @@
 [gd_scene format=3 uid="uid://cblfrt5l7ii7p"]
 
 [ext_resource type="Script" uid="uid://d1xa2g7dfuwoy" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="Theme" uid="uid://bw33ya7ajjkkj" path="res://healtbarTheme.tres" id="2_4gyqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
-size = Vector2(46.801304, 45.994385)
+size = Vector2(38.70306, 38.703056)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
 size = Vector2(732.0491, 181.26096)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iifgy"]
+size = Vector2(80, 80)
+
 [node name="Enemy" type="CharacterBody2D" unique_id=57849691 groups=["Enemy"]]
-scale = Vector2(0.571, 0.571)
 script = ExtResource("1_4gyqm")
+Health = 50
+MaxHP = 50
 metadata/Health = 100
 
 [node name="Area2D" type="Area2D" parent="." unique_id=650671015]
 scale = Vector2(0.571, 0.571)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1329559412]
-visible = false
-position = Vector2(3.0670993, -3.067099)
-scale = Vector2(3.801, 3.801)
+position = Vector2(-7.3070504e-07, -2.9228202e-06)
+scale = Vector2(3.8010004, 3.8010004)
 shape = SubResource("RectangleShape2D_4gyqm")
 
 [node name="NearbyArea" type="Area2D" parent="." unique_id=299856304 groups=["NoHitBox"]]
@@ -30,8 +34,22 @@ position = Vector2(24.518393, -56.479855)
 shape = SubResource("RectangleShape2D_qi2p4")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1145032626]
-offset_left = -36.777584
-offset_top = -36.777588
-offset_right = 36.777584
-offset_bottom = 36.777588
-color = Color(0, 0.46666667, 0.7137255, 1)
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0.29803923, 0.4509804, 1)
+
+[node name="Healthbar" type="ProgressBar" parent="." unique_id=1373474416]
+unique_name_in_owner = true
+visible = false
+offset_left = -45.534153
+offset_top = -50.788094
+offset_right = 45.534153
+offset_bottom = -45.53415
+theme = ExtResource("2_4gyqm")
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1095713656]
+position = Vector2(8.34465e-07, 8.34465e-07)
+shape = SubResource("RectangleShape2D_iifgy")

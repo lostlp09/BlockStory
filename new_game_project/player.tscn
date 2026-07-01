@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://brkot22r6xxn1"]
+
+[ext_resource type="Script" uid="uid://dc2tyapas16kr" path="res://player.gd" id="1_i3pqv"]
+[ext_resource type="Script" uid="uid://bex0genodabg7" path="res://ability.gd" id="2_hqtel"]
+[ext_resource type="Script" uid="uid://cqi2vca8qde7a" path="res://normal_combat.gd" id="3_sweqy"]
+[ext_resource type="Script" uid="uid://doh0dpa50locg" path="res://settings_manager.gd" id="4_hqtel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(129.41174, 129.41174)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
+size = Vector2(135.236, 129.882)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
+size = Vector2(7.2059145, 4.985421)
+
+[node name="Player" type="CharacterBody2D" unique_id=679712957 groups=["player"]]
+scale = Vector2(0.425, 0.425)
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_i3pqv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=993094209]
+unique_name_in_owner = true
+offset_left = -65.88235
+offset_top = -65.0
+offset_right = 65.88236
+offset_bottom = 65.882355
+color = Color(0, 0.467, 0.714, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1260727522]
+position = Vector2(-1.176469, 1.1764717)
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="PlayerArea" type="Area2D" parent="." unique_id=1391724669]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea" unique_id=991100142]
+position = Vector2(5.60985e-07, 0.9411702)
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_0e48y")
+
+[node name="Abilitys" type="Node2D" parent="." unique_id=2063974988]
+script = ExtResource("2_hqtel")
+
+[node name="normalCombat" type="Node2D" parent="." unique_id=489442765]
+script = ExtResource("3_sweqy")
+
+[node name="SettingsManager" type="Node2D" parent="." unique_id=538117798]
+process_mode = 3
+script = ExtResource("4_hqtel")
+
+[node name="FakeRaycast" type="Area2D" parent="." unique_id=1179872573]
+unique_name_in_owner = true
+scale = Vector2(1.0000001, 26.430004)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeRaycast" unique_id=1810938302]
+position = Vector2(-66.98525, -0.17805076)
+scale = Vector2(0.9999993, 1)
+shape = SubResource("RectangleShape2D_hqtel")

@@ -1,66 +1,46 @@
 [gd_scene format=3 uid="uid://4pqund3nukl7"]
 
-[ext_resource type="Script" uid="uid://dc2tyapas16kr" path="res://player.gd" id="1_0e48y"]
-[ext_resource type="Script" uid="uid://bex0genodabg7" path="res://ability.gd" id="3_0hol4"]
+[ext_resource type="PackedScene" uid="uid://brkot22r6xxn1" path="res://player.tscn" id="1_q6r6c"]
+[ext_resource type="PackedScene" uid="uid://cmwqxwydgugq8" path="res://door.tscn" id="4_hqns4"]
+[ext_resource type="Script" uid="uid://6anbqp3lstgh" path="res://Checkpoint.gd" id="4_ir8iy"]
 [ext_resource type="PackedScene" uid="uid://ccj64j4grfner" path="res://block.tscn" id="4_kdubu"]
-[ext_resource type="Script" uid="uid://cqi2vca8qde7a" path="res://normal_combat.gd" id="4_q6r6c"]
+[ext_resource type="PackedScene" uid="uid://y0tiymkbubsj" path="res://Checkpoint.tscn" id="4_rj586"]
 [ext_resource type="PackedScene" uid="uid://dof7qa3omkk7j" path="res://Spike.tscn" id="5_kdubu"]
+[ext_resource type="PackedScene" uid="uid://bxhie7415eh8u" path="res://enemy_2.tscn" id="6_4d7sh"]
+[ext_resource type="AudioStream" uid="uid://cq0r2i13exbea" path="res://the_mountain-game-game-music-508018(1).mp3" id="6_d21ai"]
 [ext_resource type="PackedScene" uid="uid://cblfrt5l7ii7p" path="res://enemy.tscn" id="6_kdubu"]
 [ext_resource type="PackedScene" uid="uid://hpivl2cefr1u" path="res://player_g_ui.tscn" id="7_d21ai"]
+[ext_resource type="Script" uid="uid://co0ghnkrqx7gj" path="res://audio_stream_player.gd" id="7_rj586"]
+[ext_resource type="Texture2D" uid="uid://dmtuusljd44ep" path="res://Shard1.png" id="9_nr8wp"]
+[ext_resource type="Texture2D" uid="uid://u5w1u1k4fikk" path="res://shard3.png" id="10_d2bti"]
+[ext_resource type="Texture2D" uid="uid://ci0ru8qrw3gwm" path="res://shard2.png" id="11_ta5nu"]
+[ext_resource type="Script" uid="uid://babqsxkdgxixm" path="res://area_2d.gd" id="15_d2bti"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
-size = Vector2(129.41174, 129.41174)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yt2a0"]
+size = Vector2(62, 127)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
-size = Vector2(148, 128)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ta5nu"]
+size = Vector2(56737, 5177)
 
-[node name="Node2D" type="Node2D" unique_id=778891098]
+[node name="World" type="Node2D" unique_id=778891098]
+position = Vector2(4, 0)
+metadata/_edit_vertical_guides_ = [-1382.0]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=2139025381 groups=["player"]]
-position = Vector2(485.9999, 279)
-scale = Vector2(0.425, 0.425)
-script = ExtResource("1_0e48y")
-
-[node name="ColorRect" type="ColorRect" parent="Player" unique_id=785247602]
+[node name="Player" parent="." unique_id=679712957 instance=ExtResource("1_q6r6c")]
 unique_name_in_owner = true
-offset_left = -65.882355
-offset_top = -63.529415
-offset_right = 64.117645
-offset_bottom = 66.47058
-color = Color(0, 0.46666667, 0.7137255, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1008903737]
-position = Vector2(-1.1764688, 1.1764717)
-scale = Vector2(1.0000002, 1.0000002)
-shape = SubResource("RectangleShape2D_0hol4")
-
-[node name="PlayerArea" type="Area2D" parent="Player" unique_id=3718947]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerArea" unique_id=1566131354]
-position = Vector2(-1, 0)
-shape = SubResource("RectangleShape2D_0e48y")
-
-[node name="RayCast2D" type="RayCast2D" parent="Player" unique_id=1017120414]
-scale = Vector2(1, 26.43)
-target_position = Vector2(-75, 0)
-
-[node name="Abilitys" type="Node2D" parent="Player" unique_id=1051382100]
-script = ExtResource("3_0hol4")
-
-[node name="normalCombat" type="Node2D" parent="Player" unique_id=20837946]
-script = ExtResource("4_q6r6c")
+position = Vector2(485.9999, 279)
+scale = Vector2(0.42426515, 0.425)
 
 [node name="Map" type="Node2D" parent="." unique_id=1819857777]
 position = Vector2(4, 0)
 
 [node name="BackGround" type="ColorRect" parent="Map" unique_id=699867991]
-visible = false
 z_index = -81
-offset_left = -9196.0
-offset_top = -6129.0
-offset_right = 16095.0
-offset_bottom = 3866.0
-color = Color(0.28235295, 0.7921569, 0.89411765, 1)
+offset_left = -8820.0
+offset_top = -12197.0
+offset_right = 16471.0
+offset_bottom = 4413.0
+color = Color(0.2848, 0.78913325, 0.89, 1)
 
 [node name="Blocks" type="Node2D" parent="Map" unique_id=1276403466]
 
@@ -72,48 +52,217 @@ position = Vector2(1363, -467)
 scale = Vector2(0.19, 2.2800004)
 
 [node name="Block7" parent="Map/Blocks" unique_id=1240501441 instance=ExtResource("4_kdubu")]
-position = Vector2(1108, -1403.9999)
-scale = Vector2(0.106375806, 2.2800004)
+position = Vector2(1051.67, -1450.92)
+scale = Vector2(0.106375806, 3.142783)
 
 [node name="Block10" parent="Map/Blocks" unique_id=39894445 instance=ExtResource("4_kdubu")]
-position = Vector2(-158.00005, -1475.9999)
+position = Vector2(-396.00003, -1280.2249)
 scale = Vector2(0.42637548, 0.32000053)
 
 [node name="Block12" parent="Map/Blocks" unique_id=749100644 instance=ExtResource("4_kdubu")]
-position = Vector2(-152, -1843)
-scale = Vector2(0.266375, 0.12000053)
+position = Vector2(-108, -1937)
+scale = Vector2(0.10342016, 0.756876)
 
-[node name="Block13" parent="Map/Blocks" unique_id=288759885 instance=ExtResource("4_kdubu")]
-position = Vector2(312, -1907)
-scale = Vector2(0.266375, 0.12000053)
+[node name="Block13" parent="Map/Blocks" unique_id=2032288515 instance=ExtResource("4_kdubu")]
+position = Vector2(452, -2323)
+scale = Vector2(0.20441885, 1.167173)
+
+[node name="Block30" parent="Map/Blocks" unique_id=621350094 instance=ExtResource("4_kdubu")]
+position = Vector2(128, -2068)
+scale = Vector2(0.20441885, 0.36717546)
+
+[node name="Block16" parent="Map/Blocks" unique_id=123628869 instance=ExtResource("4_kdubu")]
+position = Vector2(3337, -2556.0002)
+scale = Vector2(0.3485211, 0.20128088)
+
+[node name="Block17" parent="Map/Blocks" unique_id=1499340107 instance=ExtResource("4_kdubu")]
+position = Vector2(3915.0002, -2674.0002)
+scale = Vector2(0.3485211, 0.20128088)
+
+[node name="Block18" parent="Map/Blocks" unique_id=1732649615 instance=ExtResource("4_kdubu")]
+position = Vector2(4402, -3418)
+scale = Vector2(0.066637255, 1.8699982)
+
+[node name="Block20" parent="Map/Blocks" unique_id=1111448237 instance=ExtResource("4_kdubu")]
+position = Vector2(3478, -4078)
+scale = Vector2(0.066637255, 1.8699982)
+
+[node name="Block22" parent="Map/Blocks" unique_id=63541602 instance=ExtResource("4_kdubu")]
+position = Vector2(2878, -4257.9995)
+scale = Vector2(0.4666372, 0.3499981)
+
+[node name="Block23" parent="Map/Blocks" unique_id=1176669129 instance=ExtResource("4_kdubu")]
+position = Vector2(2166, -4352)
+scale = Vector2(0.4666372, 0.6299981)
+
+[node name="Block24" parent="Map/Blocks" unique_id=1846202093 instance=ExtResource("4_kdubu")]
+position = Vector2(1256, -4150)
+scale = Vector2(0.6266372, -1.2500019)
+
+[node name="Block29" parent="Map/Blocks" unique_id=1944821333 instance=ExtResource("4_kdubu")]
+position = Vector2(2786.88, -5738.735)
+scale = Vector2(0.2033149, -0.6437131)
+
+[node name="Block32" parent="Map/Blocks" unique_id=714001566 instance=ExtResource("4_kdubu")]
+position = Vector2(3552.0002, -6189.9995)
+scale = Vector2(0.23000003, -2.8600001)
+
+[node name="Block33" parent="Map/Blocks" unique_id=1670937274 instance=ExtResource("4_kdubu")]
+position = Vector2(2089.0002, -6401.0005)
+scale = Vector2(0.91000247, -0.9000001)
+
+[node name="Block37" parent="Map/Blocks" unique_id=1957429394 instance=ExtResource("4_kdubu")]
+position = Vector2(2382, -7581)
+scale = Vector2(2.74, -0.724)
+
+[node name="Block38" parent="Map/Blocks" unique_id=1001130440 instance=ExtResource("4_kdubu")]
+position = Vector2(2089, -8092.0005)
+scale = Vector2(3.1063018, -0.724)
+
+[node name="Block39" parent="Map/Blocks" unique_id=1778785143 instance=ExtResource("4_kdubu")]
+position = Vector2(5944.0005, -7581)
+scale = Vector2(2.917, -2.322)
+
+[node name="Block35" parent="Map/Blocks" unique_id=1642493806 instance=ExtResource("4_kdubu")]
+position = Vector2(1820, -8324)
+scale = Vector2(0.22100945, 6.008301)
+
+[node name="Block36" parent="Map/Blocks" unique_id=1779384732 instance=ExtResource("4_kdubu")]
+position = Vector2(2273, -7812.675)
+scale = Vector2(0.08868497, 2.4732394)
+
+[node name="Block31" parent="Map/Blocks" unique_id=628030275 instance=ExtResource("4_kdubu")]
+position = Vector2(3139, -6070)
+scale = Vector2(0.11863642, 0.2129724)
+
+[node name="Block34" parent="Map/Blocks" unique_id=56300738 instance=ExtResource("4_kdubu")]
+position = Vector2(3337.0002, -6180)
+scale = Vector2(0.11863642, 0.2129724)
+
+[node name="Block25" parent="Map/Blocks" unique_id=15270468 instance=ExtResource("4_kdubu")]
+position = Vector2(-737, -4726)
+scale = Vector2(1.4098705, 2.124123)
+
+[node name="Block26" parent="Map/Blocks" unique_id=1981739515 instance=ExtResource("4_kdubu")]
+position = Vector2(-736.99994, -4726)
+scale = Vector2(0.08656203, -4.339657)
+
+[node name="Block28" parent="Map/Blocks" unique_id=584660326 instance=ExtResource("4_kdubu")]
+position = Vector2(-421, -5866)
+scale = Vector2(2.4676127, 0.3976991)
+
+[node name="Block27" parent="Map/Blocks" unique_id=2117661391 instance=ExtResource("4_kdubu")]
+position = Vector2(-421.00003, -5739)
+scale = Vector2(0.052064806, 2.5954268)
+
+[node name="Block19" parent="Map/Blocks" unique_id=907112410 instance=ExtResource("4_kdubu")]
+position = Vector2(3478, -3481)
+scale = Vector2(0.54663235, 0.2699982)
+
+[node name="Block14" parent="Map/Blocks" unique_id=1745392292 instance=ExtResource("4_kdubu")]
+position = Vector2(873.00006, -2399)
+scale = Vector2(1.8863165, 0.46477178)
 
 [node name="Block11" parent="Map/Blocks" unique_id=550908420 instance=ExtResource("4_kdubu")]
-position = Vector2(-382, -2064)
+position = Vector2(-534, -1805)
 scale = Vector2(0.106375515, 1.9599996)
 
 [node name="Block9" parent="Map/Blocks" unique_id=1350249368 instance=ExtResource("4_kdubu")]
 position = Vector2(452, -1358)
 scale = Vector2(0.2984182, 0.11864152)
 
+[node name="Block15" parent="Map/Blocks" unique_id=394507741 instance=ExtResource("4_kdubu")]
+position = Vector2(3325, -2399)
+scale = Vector2(1.015, 0.465)
+
 [node name="Block3" parent="Map/Blocks" unique_id=329699719 instance=ExtResource("4_kdubu")]
 position = Vector2(933.00006, 13)
 scale = Vector2(0.185, 0.165)
 
 [node name="Block4" parent="Map/Blocks" unique_id=43212656 instance=ExtResource("4_kdubu")]
-position = Vector2(515, -77)
-scale = Vector2(0.185, 0.165)
+position = Vector2(334.00006, -94)
+scale = Vector2(0.385, 0.165)
 
 [node name="Block5" parent="Map/Blocks" unique_id=610854627 instance=ExtResource("4_kdubu")]
-position = Vector2(334, -692)
-scale = Vector2(0.03934144, 1.867942)
+position = Vector2(179, -818.135)
+scale = Vector2(0.119342074, 2.4279408)
 
 [node name="Block6" parent="Map/Blocks" unique_id=1728872204 instance=ExtResource("4_kdubu")]
-position = Vector2(512, -551)
-scale = Vector2(0.03934144, 0.8679419)
+position = Vector2(461, -551.00006)
+scale = Vector2(0.07934266, 0.8679419)
 
 [node name="Block8" parent="Map/Blocks" unique_id=1098241246 instance=ExtResource("4_kdubu")]
-position = Vector2(615.00006, -667)
+position = Vector2(563, -551)
 scale = Vector2(0.37596965, 0.33045834)
+
+[node name="Node2D" parent="Map/Blocks" unique_id=1550086144 instance=ExtResource("5_kdubu")]
+position = Vector2(2347, -4375)
+
+[node name="Node2D3" parent="Map/Blocks" unique_id=1263329 instance=ExtResource("5_kdubu")]
+position = Vector2(2457, -4375)
+
+[node name="Node2D2" parent="Map/Blocks" unique_id=298326695 instance=ExtResource("5_kdubu")]
+position = Vector2(2402, -4375)
+
+[node name="Node2D4" parent="Map/Blocks" unique_id=55459361 instance=ExtResource("5_kdubu")]
+position = Vector2(862.00006, -4749)
+
+[node name="Node2D5" parent="Map/Blocks" unique_id=1375936375 instance=ExtResource("5_kdubu")]
+position = Vector2(917.00006, -4749)
+
+[node name="Node2D6" parent="Map/Blocks" unique_id=1432532377 instance=ExtResource("5_kdubu")]
+position = Vector2(575.00006, -4748)
+
+[node name="Node2D7" parent="Map/Blocks" unique_id=1791725984 instance=ExtResource("5_kdubu")]
+position = Vector2(630.00006, -4748)
+
+[node name="Node2D8" parent="Map/Blocks" unique_id=2046037150 instance=ExtResource("5_kdubu")]
+position = Vector2(296.00006, -4749)
+
+[node name="Node2D9" parent="Map/Blocks" unique_id=1593131120 instance=ExtResource("5_kdubu")]
+position = Vector2(351.00006, -4749)
+
+[node name="Node2D10" parent="Map/Blocks" unique_id=1157613873 instance=ExtResource("5_kdubu")]
+position = Vector2(186.00005, -4749)
+
+[node name="Node2D11" parent="Map/Blocks" unique_id=658435288 instance=ExtResource("5_kdubu")]
+position = Vector2(-607, -5143)
+rotation = 1.5707964
+
+[node name="Node2D16" parent="Map/Blocks" unique_id=646637878 instance=ExtResource("5_kdubu")]
+position = Vector2(-444, -4997)
+rotation = 4.712389
+scale = Vector2(0.40668857, 0.4)
+
+[node name="Node2D15" parent="Map/Blocks" unique_id=325236846 instance=ExtResource("5_kdubu")]
+position = Vector2(-443.99997, -4944)
+rotation = -1.5707964
+scale = Vector2(0.40668857, 0.4)
+
+[node name="Node2D12" parent="Map/Blocks" unique_id=1562428432 instance=ExtResource("5_kdubu")]
+position = Vector2(-607, -5198)
+rotation = 1.5707964
+
+[node name="Node2D17" parent="Map/Blocks" unique_id=928879514 instance=ExtResource("5_kdubu")]
+position = Vector2(-603, -5651)
+rotation = 1.5707964
+
+[node name="Node2D18" parent="Map/Blocks" unique_id=2085610125 instance=ExtResource("5_kdubu")]
+position = Vector2(-603, -5706)
+rotation = 1.5707964
+
+[node name="Node2D13" parent="Map/Blocks" unique_id=1153933247 instance=ExtResource("5_kdubu")]
+position = Vector2(-444, -5466)
+rotation = 4.712389
+scale = Vector2(0.40668857, 0.4)
+
+[node name="Node2D14" parent="Map/Blocks" unique_id=1159905306 instance=ExtResource("5_kdubu")]
+position = Vector2(-444, -5521)
+rotation = 4.712389
+scale = Vector2(0.40668857, 0.4)
+
+[node name="Door2" parent="Map/Blocks" unique_id=1911892829 instance=ExtResource("4_hqns4")]
+position = Vector2(5752, -7953)
 
 [node name="Spikes" type="Node2D" parent="Map" unique_id=1171101920]
 
@@ -123,43 +272,1036 @@ position = Vector2(677, 314)
 [node name="Spike" parent="Map/Spikes" unique_id=257438151 instance=ExtResource("5_kdubu")]
 position = Vector2(732, 314)
 
+[node name="Node2D" parent="Map/Spikes" unique_id=559321469 instance=ExtResource("5_kdubu")]
+position = Vector2(798.99994, -572)
+
+[node name="Node2D3" parent="Map/Spikes" unique_id=1449949106 instance=ExtResource("5_kdubu")]
+position = Vector2(480, -1380)
+
+[node name="Node2D4" parent="Map/Spikes" unique_id=11408230 instance=ExtResource("5_kdubu")]
+position = Vector2(536, -1380)
+
+[node name="Node2D5" parent="Map/Spikes" unique_id=757735701 instance=ExtResource("5_kdubu")]
+position = Vector2(592, -1380.76)
+
+[node name="Node2D6" parent="Map/Spikes" unique_id=1878557596 instance=ExtResource("5_kdubu")]
+position = Vector2(647, -1380)
+
+[node name="Node2D7" parent="Map/Spikes" unique_id=276073033 instance=ExtResource("5_kdubu")]
+position = Vector2(701, -1380)
+
+[node name="Node2D8" parent="Map/Spikes" unique_id=419459247 instance=ExtResource("5_kdubu")]
+position = Vector2(756, -1380)
+
+[node name="Node2D9" parent="Map/Spikes" unique_id=134429156 instance=ExtResource("5_kdubu")]
+position = Vector2(811, -1380)
+
+[node name="Node2D10" parent="Map/Spikes" unique_id=777433361 instance=ExtResource("5_kdubu")]
+position = Vector2(3352.9998, -2420)
+
+[node name="Node2D11" parent="Map/Spikes" unique_id=1905057617 instance=ExtResource("5_kdubu")]
+position = Vector2(3408.9998, -2420)
+
+[node name="Node2D12" parent="Map/Spikes" unique_id=1662108233 instance=ExtResource("5_kdubu")]
+position = Vector2(3464.9998, -2420)
+
+[node name="Node2D13" parent="Map/Spikes" unique_id=1476719484 instance=ExtResource("5_kdubu")]
+position = Vector2(3519.9998, -2420)
+
+[node name="Node2D14" parent="Map/Spikes" unique_id=1962486300 instance=ExtResource("5_kdubu")]
+position = Vector2(3573.9998, -2420)
+
+[node name="Node2D15" parent="Map/Spikes" unique_id=2118279849 instance=ExtResource("5_kdubu")]
+position = Vector2(3628.9998, -2420)
+
+[node name="Node2D16" parent="Map/Spikes" unique_id=320414628 instance=ExtResource("5_kdubu")]
+position = Vector2(3683.9998, -2420)
+
+[node name="Node2D17" parent="Map/Spikes" unique_id=1032720504 instance=ExtResource("5_kdubu")]
+position = Vector2(3738, -2421)
+
+[node name="Node2D18" parent="Map/Spikes" unique_id=425284765 instance=ExtResource("5_kdubu")]
+position = Vector2(3794, -2421)
+
+[node name="Node2D19" parent="Map/Spikes" unique_id=2127562155 instance=ExtResource("5_kdubu")]
+position = Vector2(3850, -2421)
+
+[node name="Node2D20" parent="Map/Spikes" unique_id=1951331230 instance=ExtResource("5_kdubu")]
+position = Vector2(3905, -2421)
+
+[node name="Node2D21" parent="Map/Spikes" unique_id=1056605799 instance=ExtResource("5_kdubu")]
+position = Vector2(3959, -2421)
+
+[node name="Node2D22" parent="Map/Spikes" unique_id=1373049821 instance=ExtResource("5_kdubu")]
+position = Vector2(4014, -2421)
+
+[node name="Node2D23" parent="Map/Spikes" unique_id=1580556529 instance=ExtResource("5_kdubu")]
+position = Vector2(4069, -2421)
+
+[node name="Node2D24" parent="Map/Spikes" unique_id=308226421 instance=ExtResource("5_kdubu")]
+position = Vector2(4123, -2421)
+
+[node name="Node2D25" parent="Map/Spikes" unique_id=845881382 instance=ExtResource("5_kdubu")]
+position = Vector2(4179, -2421)
+
+[node name="Node2D26" parent="Map/Spikes" unique_id=470945402 instance=ExtResource("5_kdubu")]
+position = Vector2(4235, -2421)
+
+[node name="Node2D27" parent="Map/Spikes" unique_id=1329821102 instance=ExtResource("5_kdubu")]
+position = Vector2(4290, -2421)
+
+[node name="Node2D36" parent="Map/Spikes" unique_id=919296829 instance=ExtResource("5_kdubu")]
+position = Vector2(2422, -5889)
+
+[node name="Node2D37" parent="Map/Spikes" unique_id=758585756 instance=ExtResource("5_kdubu")]
+position = Vector2(2478, -5889)
+
+[node name="Node2D38" parent="Map/Spikes" unique_id=513943861 instance=ExtResource("5_kdubu")]
+position = Vector2(2533, -5889)
+
+[node name="Node2D42" parent="Map/Spikes" unique_id=765924084 instance=ExtResource("5_kdubu")]
+position = Vector2(2626, -7835)
+
+[node name="Node2D43" parent="Map/Spikes" unique_id=9611404 instance=ExtResource("5_kdubu")]
+position = Vector2(2683, -7835)
+
+[node name="Node2D44" parent="Map/Spikes" unique_id=1357115801 instance=ExtResource("5_kdubu")]
+position = Vector2(2739, -7835)
+
+[node name="Node2D45" parent="Map/Spikes" unique_id=398014369 instance=ExtResource("5_kdubu")]
+position = Vector2(2794, -7835)
+
+[node name="Node2D39" parent="Map/Spikes" unique_id=318226863 instance=ExtResource("5_kdubu")]
+position = Vector2(2011, -5889)
+
+[node name="Node2D40" parent="Map/Spikes" unique_id=1911848108 instance=ExtResource("5_kdubu")]
+position = Vector2(2067, -5889)
+
+[node name="Node2D41" parent="Map/Spikes" unique_id=1293241088 instance=ExtResource("5_kdubu")]
+position = Vector2(2122, -5889)
+
+[node name="Node2D28" parent="Map/Spikes" unique_id=82611991 instance=ExtResource("5_kdubu")]
+position = Vector2(4344, -2421)
+
+[node name="Node2D29" parent="Map/Spikes" unique_id=1219123676 instance=ExtResource("5_kdubu")]
+position = Vector2(4399, -2421)
+
+[node name="Node2D30" parent="Map/Spikes" unique_id=553773103 instance=ExtResource("5_kdubu")]
+position = Vector2(4454, -2421)
+
+[node name="Node2D31" parent="Map/Spikes" unique_id=1228606727 instance=ExtResource("5_kdubu")]
+position = Vector2(4507, -2421)
+
+[node name="Node2D32" parent="Map/Spikes" unique_id=226040526 instance=ExtResource("5_kdubu")]
+position = Vector2(4562, -2421)
+
+[node name="Node2D33" parent="Map/Spikes" unique_id=154675661 instance=ExtResource("5_kdubu")]
+position = Vector2(4617, -2421)
+
+[node name="Node2D34" parent="Map/Spikes" unique_id=717249142 instance=ExtResource("5_kdubu")]
+position = Vector2(3991, -3504)
+
+[node name="Node2D35" parent="Map/Spikes" unique_id=216432601 instance=ExtResource("5_kdubu")]
+position = Vector2(3936, -3504)
+
+[node name="Node2D2" parent="Map/Spikes" unique_id=697620591 instance=ExtResource("5_kdubu")]
+position = Vector2(993.99994, -574)
+
 [node name="Checkpoint" type="Node2D" parent="Map" unique_id=2096607666]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1377743345]
+[node name="Checkpoint1" type="Area2D" parent="Map/Checkpoint" unique_id=1777627846]
+position = Vector2(128, 311)
+script = ExtResource("4_ir8iy")
+Checkpoint = 0
 
-[node name="Enemy" parent="." unique_id=57849691 instance=ExtResource("6_kdubu")]
-position = Vector2(680, -707)
-scale = Vector2(1.106, 1.106)
-Speed = 200
+[node name="ColorRect" type="ColorRect" parent="Map/Checkpoint/Checkpoint1" unique_id=725838390]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -23.0
+offset_right = 40.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.7853982
+scale = Vector2(0.8, 0.8)
+color = Color(0.2520276, 0.25202766, 0.25202763, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Checkpoint/Checkpoint1" unique_id=1678802405]
+visible = false
+shape = SubResource("RectangleShape2D_yt2a0")
+
+[node name="Checkpoint2" parent="Map/Checkpoint" unique_id=1216112858 instance=ExtResource("4_rj586")]
+position = Vector2(128, -1339)
+
+[node name="Checkpoint3" parent="Map/Checkpoint" unique_id=1303869129 instance=ExtResource("4_rj586")]
+position = Vector2(2694, -4419)
+Checkpoint = 2
+
+[node name="Checkpoint4" parent="Map/Checkpoint" unique_id=373559341 instance=ExtResource("4_rj586")]
+position = Vector2(2899, -6002)
+Checkpoint = 3
+
+[node name="Checkpoint5" parent="Map/Checkpoint" unique_id=2421888 instance=ExtResource("4_rj586")]
+position = Vector2(5483, -7894)
+Checkpoint = 4
+
+[node name="Enemy" type="Node2D" parent="Map" unique_id=2039418227]
+
+[node name="Enemy7" parent="Map/Enemy" unique_id=1705238630 instance=ExtResource("6_kdubu")]
+position = Vector2(2624, -6747)
+
+[node name="Enemy2" parent="Map/Enemy" unique_id=720883076 instance=ExtResource("6_kdubu")]
+position = Vector2(1502, -2457)
+Speed = 150
+
+[node name="Enemy3" parent="Map/Enemy" unique_id=2091503883 instance=ExtResource("6_kdubu")]
+position = Vector2(2977, -4296)
+
+[node name="Node2D11" parent="Map/Enemy" unique_id=1055073523 instance=ExtResource("5_kdubu")]
+position = Vector2(241.00005, -4749)
+
+[node name="Enemy4" parent="Map/Enemy" unique_id=1740125489 instance=ExtResource("6_4d7sh")]
+position = Vector2(2796, -2480)
+
+[node name="Enemy5" parent="Map/Enemy" unique_id=1744478254 instance=ExtResource("6_kdubu")]
+position = Vector2(1343, -4611)
+
+[node name="Enemy6" parent="Map/Enemy" unique_id=88232778 instance=ExtResource("6_kdubu")]
+position = Vector2(-534, -4771)
+
+[node name="Enemy8" parent="Map/Enemy" unique_id=57849691 instance=ExtResource("6_4d7sh")]
+position = Vector2(3181, -7895)
+Speed = 300
 time = 2
 
-[node name="Node2D" parent="." unique_id=1550086144 instance=ExtResource("5_kdubu")]
-position = Vector2(855, -688)
+[node name="Enemy" parent="Map/Enemy" unique_id=1802131081 instance=ExtResource("6_kdubu")]
+position = Vector2(4042, -7877)
+time = 2
 
-[node name="Node2D3" parent="." unique_id=1449949106 instance=ExtResource("5_kdubu")]
-position = Vector2(484, -1380)
+[node name="Enemy9" parent="Map/Enemy" unique_id=1462401342 instance=ExtResource("6_kdubu")]
+position = Vector2(4664, -7894)
+time = 2
 
-[node name="Node2D4" parent="." unique_id=11408230 instance=ExtResource("5_kdubu")]
-position = Vector2(540, -1380)
+[node name="Enemy2" parent="Map" unique_id=880210544 instance=ExtResource("6_4d7sh")]
+position = Vector2(759, -5916)
 
-[node name="Node2D5" parent="." unique_id=757735701 instance=ExtResource("5_kdubu")]
-position = Vector2(596, -1380.76)
+[node name="Enemy3" parent="Map" unique_id=1349866929 instance=ExtResource("6_4d7sh")]
+position = Vector2(1520, -5899)
 
-[node name="Node2D6" parent="." unique_id=1878557596 instance=ExtResource("5_kdubu")]
-position = Vector2(651, -1380)
+[node name="Background" type="Node2D" parent="Map" unique_id=1352053365]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+z_index = -43
 
-[node name="Node2D7" parent="." unique_id=276073033 instance=ExtResource("5_kdubu")]
-position = Vector2(705, -1380)
+[node name="Shard1" type="Sprite2D" parent="Map/Background" unique_id=1090742830]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-431.99, -3421.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
 
-[node name="Node2D8" parent="." unique_id=419459247 instance=ExtResource("5_kdubu")]
-position = Vector2(760, -1380)
+[node name="Shard5" type="Sprite2D" parent="Map/Background" unique_id=1849327809]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(2110.0103, -4592.7104)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
 
-[node name="Node2D9" parent="." unique_id=134429156 instance=ExtResource("5_kdubu")]
-position = Vector2(815, -1380)
+[node name="Shard6" type="Sprite2D" parent="Map/Background" unique_id=1881560466]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(2975.0103, -6396.7104)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
 
-[node name="Node2D2" parent="." unique_id=697620591 instance=ExtResource("5_kdubu")]
-position = Vector2(1050, -690)
+[node name="Shard2" type="Sprite2D" parent="Map/Background" unique_id=1911687988]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1853.0103, -1926.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard7" type="Sprite2D" parent="Map/Background" unique_id=762470641]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(2687.0103, -1213.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard8" type="Sprite2D" parent="Map/Background" unique_id=1161738988]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(147.01025, 351.29004)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard9" type="Sprite2D" parent="Map/Background" unique_id=1893151126]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(4197.0103, -3070.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard10" type="Sprite2D" parent="Map/Background" unique_id=1811332731]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(4950.01, -2416.7095)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard11" type="Sprite2D" parent="Map/Background" unique_id=1984162513]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(3577.0098, -3847.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard12" type="Sprite2D" parent="Map/Background" unique_id=1823483442]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(301.01, -5776.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard3" type="Sprite2D" parent="Map/Background" unique_id=624490275]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1085.0103, -817.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("10_d2bti")
+
+[node name="Shard4" type="Sprite2D" parent="Map/Background" unique_id=2137868605]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(550.01025, -2015.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard13" type="Sprite2D" parent="Map/Background" unique_id=1814474421]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1088.0103, -2813.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard14" type="Sprite2D" parent="Map/Background" unique_id=1524077158]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1853.0103, -6743.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard15" type="Sprite2D" parent="Map/Background" unique_id=1937217050]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(4794.0103, -7348.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard17" type="Sprite2D" parent="Map/Background" unique_id=86840335]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(2994.0103, -4888.7104)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard18" type="Sprite2D" parent="Map/Background" unique_id=1207854918]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(3859.0103, -6692.7104)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard19" type="Sprite2D" parent="Map/Background" unique_id=1420836721]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(2737.0103, -2222.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard20" type="Sprite2D" parent="Map/Background" unique_id=65110484]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(3571.0103, -1509.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard21" type="Sprite2D" parent="Map/Background" unique_id=1076008934]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1031.0103, 55.29004)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard22" type="Sprite2D" parent="Map/Background" unique_id=916390137]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(5081.0103, -3366.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard23" type="Sprite2D" parent="Map/Background" unique_id=1631903956]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(5834.01, -2712.7095)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard24" type="Sprite2D" parent="Map/Background" unique_id=2141714555]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(4461.01, -4143.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard25" type="Sprite2D" parent="Map/Background" unique_id=1411629529]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1185.01, -6072.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard26" type="Sprite2D" parent="Map/Background" unique_id=72352454]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1969.0103, -1113.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("10_d2bti")
+
+[node name="Shard27" type="Sprite2D" parent="Map/Background" unique_id=569462515]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1434.0103, -2311.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard28" type="Sprite2D" parent="Map/Background" unique_id=1521921256]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1972.0103, -3109.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard29" type="Sprite2D" parent="Map/Background" unique_id=1905748292]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(2737.0103, -7039.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard30" type="Sprite2D" parent="Map/Background" unique_id=1265683826]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(5678.0103, -7644.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard31" type="Sprite2D" parent="Map/Background" unique_id=1912646074]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-680.9899, -2360.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard32" type="Sprite2D" parent="Map/Background" unique_id=1848205125]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1861.0104, -3531.7104)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard33" type="Sprite2D" parent="Map/Background" unique_id=1960805389]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(2726.0103, -5335.7104)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard34" type="Sprite2D" parent="Map/Background" unique_id=817863997]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1604.0104, -865.7101)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard35" type="Sprite2D" parent="Map/Background" unique_id=181623891]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(2438.0103, -152.71008)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard36" type="Sprite2D" parent="Map/Background" unique_id=1202902432]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-101.989746, 1412.29)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard37" type="Sprite2D" parent="Map/Background" unique_id=296527301]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(3948.0103, -2009.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard38" type="Sprite2D" parent="Map/Background" unique_id=56453470]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(4701.01, -1355.7095)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard39" type="Sprite2D" parent="Map/Background" unique_id=717214078]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(3328.0098, -2786.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard40" type="Sprite2D" parent="Map/Background" unique_id=1035951812]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(52.01001, -4715.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard41" type="Sprite2D" parent="Map/Background" unique_id=1778911243]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(836.0104, 243.28992)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("10_d2bti")
+
+[node name="Shard42" type="Sprite2D" parent="Map/Background" unique_id=1408764404]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(301.01038, -954.7101)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard43" type="Sprite2D" parent="Map/Background" unique_id=1447951428]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(839.0104, -1752.7101)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard44" type="Sprite2D" parent="Map/Background" unique_id=1593957783]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1604.0104, -5682.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard45" type="Sprite2D" parent="Map/Background" unique_id=395668949]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(4545.0103, -6287.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard46" type="Sprite2D" parent="Map/Background" unique_id=384198928]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(2067.0098, -5117.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard47" type="Sprite2D" parent="Map/Background" unique_id=1497475108]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(4609.0103, -6288.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard48" type="Sprite2D" parent="Map/Background" unique_id=1455058015]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(5474.01, -8092.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard49" type="Sprite2D" parent="Map/Background" unique_id=1290228109]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(4352.0103, -3622.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard50" type="Sprite2D" parent="Map/Background" unique_id=1950680947]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(5186.01, -2909.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard51" type="Sprite2D" parent="Map/Background" unique_id=847729186]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(2646.0103, -1344.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard52" type="Sprite2D" parent="Map/Background" unique_id=648485632]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(6696.0103, -4766.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard53" type="Sprite2D" parent="Map/Background" unique_id=1144394483]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(7449.01, -4112.7095)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard54" type="Sprite2D" parent="Map/Background" unique_id=1094047839]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(6076.01, -5543.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard55" type="Sprite2D" parent="Map/Background" unique_id=315475622]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(2800.01, -7472.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard56" type="Sprite2D" parent="Map/Background" unique_id=1894992990]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(3584.0103, -2513.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("10_d2bti")
+
+[node name="Shard57" type="Sprite2D" parent="Map/Background" unique_id=30431896]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(3049.0103, -3711.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard58" type="Sprite2D" parent="Map/Background" unique_id=1368162558]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(3587.0103, -4509.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard59" type="Sprite2D" parent="Map/Background" unique_id=887383965]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(4352.0103, -8439.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard60" type="Sprite2D" parent="Map/Background" unique_id=835170188]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(7293.01, -9044.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard61" type="Sprite2D" parent="Map/Background" unique_id=901288657]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-51.989746, -6234.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard62" type="Sprite2D" parent="Map/Background" unique_id=974904508]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(2490.0107, -7405.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard63" type="Sprite2D" parent="Map/Background" unique_id=1673855469]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(3355.0103, -9209.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard64" type="Sprite2D" parent="Map/Background" unique_id=1050045250]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(2233.0107, -4739.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard65" type="Sprite2D" parent="Map/Background" unique_id=1782471957]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(3067.0103, -4026.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard66" type="Sprite2D" parent="Map/Background" unique_id=796773722]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(527.0105, -2461.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard67" type="Sprite2D" parent="Map/Background" unique_id=1692761608]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(4577.0107, -5883.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard68" type="Sprite2D" parent="Map/Background" unique_id=540801991]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(5330.01, -5229.7095)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard69" type="Sprite2D" parent="Map/Background" unique_id=67212772]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(4119, -7237)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard121" type="Sprite2D" parent="Map/Background" unique_id=828676746]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(3647.9995, -7916.9995)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard122" type="Sprite2D" parent="Map/Background" unique_id=185582007]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(3352.9998, -7074.9995)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard123" type="Sprite2D" parent="Map/Background" unique_id=450686452]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(4665, -8035.9995)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard124" type="Sprite2D" parent="Map/Background" unique_id=2131053114]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(4665, -8035.9995)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard70" type="Sprite2D" parent="Map/Background" unique_id=1832863423]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(681.01025, -8589.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard71" type="Sprite2D" parent="Map/Background" unique_id=1402047024]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1465.0107, -3630.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("10_d2bti")
+
+[node name="Shard72" type="Sprite2D" parent="Map/Background" unique_id=1779896177]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(930.01074, -4828.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard74" type="Sprite2D" parent="Map/Background" unique_id=1130767376]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(2233.0107, -9556.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard75" type="Sprite2D" parent="Map/Background" unique_id=1330551616]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(5174.0103, -10161.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard76" type="Sprite2D" parent="Map/Background" unique_id=2037456094]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(4721.0093, -7630.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard77" type="Sprite2D" parent="Map/Background" unique_id=146400950]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(7263.01, -8801.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard78" type="Sprite2D" parent="Map/Background" unique_id=834747105]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(8128.0093, -10605.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard79" type="Sprite2D" parent="Map/Background" unique_id=1881560175]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(7006.01, -6135.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard80" type="Sprite2D" parent="Map/Background" unique_id=1087727523]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(7840.0093, -5422.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard81" type="Sprite2D" parent="Map/Background" unique_id=1042852090]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(5300.01, -3857.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard82" type="Sprite2D" parent="Map/Background" unique_id=1768274380]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(9350.01, -7279.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard83" type="Sprite2D" parent="Map/Background" unique_id=1126167559]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(10103.01, -6625.7095)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard84" type="Sprite2D" parent="Map/Background" unique_id=1672688561]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(8730.01, -8056.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard85" type="Sprite2D" parent="Map/Background" unique_id=763591249]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(5454.01, -9985.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard86" type="Sprite2D" parent="Map/Background" unique_id=1518999311]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(6238.01, -5026.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("10_d2bti")
+
+[node name="Shard87" type="Sprite2D" parent="Map/Background" unique_id=793959739]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(5703.01, -6224.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard88" type="Sprite2D" parent="Map/Background" unique_id=66289344]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(6241.01, -7022.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard89" type="Sprite2D" parent="Map/Background" unique_id=1378247213]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(7006.01, -10952.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard90" type="Sprite2D" parent="Map/Background" unique_id=1549767454]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(9947.01, -11557.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard91" type="Sprite2D" parent="Map/Background" unique_id=351169130]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-1879.9897, -5173.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard92" type="Sprite2D" parent="Map/Background" unique_id=1634620577]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(662.01074, -6344.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard93" type="Sprite2D" parent="Map/Background" unique_id=1312907329]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1527.0103, -8148.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard94" type="Sprite2D" parent="Map/Background" unique_id=2116181117]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(405.01074, -3678.7102)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard95" type="Sprite2D" parent="Map/Background" unique_id=1357264974]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1239.0103, -2965.7102)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard96" type="Sprite2D" parent="Map/Background" unique_id=721615466]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-1300.9897, -1400.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard97" type="Sprite2D" parent="Map/Background" unique_id=1961702857]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(2749.0103, -4822.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard98" type="Sprite2D" parent="Map/Background" unique_id=1021838282]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(3502.0098, -4168.7095)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard99" type="Sprite2D" parent="Map/Background" unique_id=1467721606]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(2129.0103, -5599.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard100" type="Sprite2D" parent="Map/Background" unique_id=1911222284]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-1146.9897, -7528.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard101" type="Sprite2D" parent="Map/Background" unique_id=1438384556]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-362.98926, -2569.7102)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("10_d2bti")
+
+[node name="Shard102" type="Sprite2D" parent="Map/Background" unique_id=1115505789]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-897.98926, -3767.7102)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard103" type="Sprite2D" parent="Map/Background" unique_id=1474810876]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-359.98926, -4565.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard104" type="Sprite2D" parent="Map/Background" unique_id=98543546]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(405.01074, -8495.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard105" type="Sprite2D" parent="Map/Background" unique_id=445701642]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(3346.0112, -9100.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard106" type="Sprite2D" parent="Map/Background" unique_id=758051479]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-3645.9897, -5287.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard107" type="Sprite2D" parent="Map/Background" unique_id=1578241056]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-1103.9894, -6458.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard108" type="Sprite2D" parent="Map/Background" unique_id=968506010]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-238.98987, -8262.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard109" type="Sprite2D" parent="Map/Background" unique_id=2101428084]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-1360.9894, -3792.7102)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard110" type="Sprite2D" parent="Map/Background" unique_id=679629716]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-526.98987, -3079.7102)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard111" type="Sprite2D" parent="Map/Background" unique_id=15269510]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-3066.99, -1514.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard112" type="Sprite2D" parent="Map/Background" unique_id=1228974820]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1256, -4946)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard125" type="Sprite2D" parent="Map/Background" unique_id=865183672]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1610.0002, -4749)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard113" type="Sprite2D" parent="Map/Background" unique_id=252749652]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1736.0095, -4282.7095)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard114" type="Sprite2D" parent="Map/Background" unique_id=1030299430]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(363.01, -5713.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard115" type="Sprite2D" parent="Map/Background" unique_id=1795202499]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-2912.99, -7642.71)
+rotation = 0.51419973
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("9_nr8wp")
+
+[node name="Shard116" type="Sprite2D" parent="Map/Background" unique_id=159231352]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-2128.9893, -2683.7102)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("10_d2bti")
+
+[node name="Shard117" type="Sprite2D" parent="Map/Background" unique_id=1160812124]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-2663.9893, -3881.7102)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard118" type="Sprite2D" parent="Map/Background" unique_id=1982656713]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-2125.9893, -4679.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard119" type="Sprite2D" parent="Map/Background" unique_id=1060445245]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(-1360.9894, -8609.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Shard120" type="Sprite2D" parent="Map/Background" unique_id=1634037855]
+modulate = Color(0.6784314, 0.9098039, 0.95686275, 1)
+position = Vector2(1580.0111, -9214.71)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_ta5nu")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1377743345]
+physics_interpolation_mode = 1
+position_smoothing_speed = 20.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=81619060]
 
 [node name="PlayerGUi" parent="CanvasLayer" unique_id=2063124396 instance=ExtResource("7_d21ai")]
+z_index = 369
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1946429782]
+process_mode = 3
+stream = ExtResource("6_d21ai")
+autoplay = true
+parameters/looping = true
+script = ExtResource("7_rj586")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1294584555]
+position = Vector2(-179, 1376)
+script = ExtResource("15_d2bti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1314755434]
+position = Vector2(4800.5, 1977)
+shape = SubResource("RectangleShape2D_ta5nu")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

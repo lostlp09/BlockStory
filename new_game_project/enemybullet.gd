@@ -6,7 +6,7 @@ extends Node2D
 func _ready() -> void:
 	get_tree().create_timer(3).timeout.connect(func():self.queue_free())
 	print(self.get_parent())
-	target = self.get_parent().get_node("Player")
+	target = self.get_parent().get_parent().get_parent().get_node("Player")
 	Area.body_entered.connect(func (body): if body.is_in_group("player"):
 		var direction = ( body.position-self.position).normalized()
 		body.playerKnockBack(direction,300)

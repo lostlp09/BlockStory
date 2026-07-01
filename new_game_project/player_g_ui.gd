@@ -11,13 +11,15 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if player:
+		%HpText.text = var_to_str(player.Health)+  "/100"
 		Healthbar.value = player.Health 
 		
 func reloadAbility():
 	abilitybar.value = 0
-	var timer = get_tree().create_timer(1)
+	var timer = get_tree().create_timer(5,false)
 	while timer.time_left != 0:
-		abilitybar.value = 100 * (1-timer.time_left)
+		if not is_inside_tree():return
+		abilitybar.value = 100 * (1-timer.time_left/5)
 		await get_tree().process_frame
 	abilitybar.value = 100
 

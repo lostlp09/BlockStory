@@ -1,14 +1,16 @@
 [gd_resource type="Theme" format=3 uid="uid://5wa3d2rvoqkt"]
 
+[ext_resource type="FontFile" uid="uid://dmo1gtfjvqkib" path="res://PixelifySans-VariableFont_wght.ttf" id="1_fucc5"]
 [ext_resource type="StyleBox" uid="uid://bokcbmltqe8br" path="res://ButtonStylebox.tres" id="1_vvmgv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvmgv"]
-bg_color = Color(6.738305e-07, 0.5462036, 0.6577528, 1)
+bg_color = Color(0, 0.22166671, 0.35, 1)
 
 [resource]
 default_font_size = 0
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
 Button/font_sizes/font_size = 31
+Button/fonts/font = ExtResource("1_fucc5")
 Button/styles/hover = SubResource("StyleBoxFlat_vvmgv")
 Button/styles/normal = ExtResource("1_vvmgv")

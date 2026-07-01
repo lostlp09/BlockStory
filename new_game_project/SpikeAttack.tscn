@@ -7,13 +7,21 @@
 size = Vector2(400, 500)
 
 [node name="Sprite2D" type="Sprite2D" unique_id=799889387]
-modulate = Color(0, 0.46666667, 0.7137255, 1)
+self_modulate = Color(0, 0.46666667, 0.7137255, 1)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_e3b7o")
 script = ExtResource("2_kfk6e")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1802387024]
+unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=214160930]
 position = Vector2(0, 50)
 shape = SubResource("RectangleShape2D_14f15")
+
+[node name="Warning" type="Sprite2D" parent="." unique_id=1854312762]
+unique_name_in_owner = true
+self_modulate = Color(0.97, 0, 0.16166697, 0.34901962)
+position = Vector2(-4.9999995, -599.99994)
+scale = Vector2(0.9999998, 0.9999998)
+texture = ExtResource("1_e3b7o")

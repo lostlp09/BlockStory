@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bxhie7415eh8u"]
+
+[ext_resource type="Script" uid="uid://bikwt8ovy1m2a" path="res://enemy_2.gd" id="1_vfv5t"]
+[ext_resource type="Theme" uid="uid://bw33ya7ajjkkj" path="res://healtbarTheme.tres" id="2_mvvu1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+size = Vector2(38.70306, 38.703056)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iifgy"]
+size = Vector2(80, 80)
+
+[node name="Enemy2" type="CharacterBody2D" unique_id=57849691 groups=["Enemy"]]
+script = ExtResource("1_vfv5t")
+metadata/Health = 100
+
+[node name="Area2D" type="Area2D" parent="." unique_id=650671015]
+scale = Vector2(0.571, 0.571)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1329559412]
+position = Vector2(-7.3070504e-07, -2.9228202e-06)
+scale = Vector2(3.8010004, 3.8010004)
+shape = SubResource("RectangleShape2D_4gyqm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1145032626]
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.45, 0.8166666, 1, 1)
+
+[node name="Healthbar" type="ProgressBar" parent="." unique_id=1373474416]
+unique_name_in_owner = true
+visible = false
+offset_left = -45.534153
+offset_top = -50.788094
+offset_right = 45.534153
+offset_bottom = -45.53415
+theme = ExtResource("2_mvvu1")
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1095713656]
+position = Vector2(8.34465e-07, 8.34465e-07)
+shape = SubResource("RectangleShape2D_iifgy")

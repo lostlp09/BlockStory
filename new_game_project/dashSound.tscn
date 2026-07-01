@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d3b4tpb7ybp10"]
+
+[ext_resource type="AudioStream" uid="uid://c6xvt1ogotq2e" path="res://universfield-swoosh-06-351021.mp3" id="1_5hx2w"]
+[ext_resource type="Script" uid="uid://b1xae3ystujtn" path="res://jumpsound.gd" id="2_lvbol"]
+
+[node name="Jumpsound" type="AudioStreamPlayer2D" unique_id=831103219]
+stream = ExtResource("1_5hx2w")
+script = ExtResource("2_lvbol")

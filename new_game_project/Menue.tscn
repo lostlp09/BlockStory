@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://w220kwr047o0"]
+
+[ext_resource type="Script" uid="uid://bvctdms4umdkr" path="res://Menue.gd" id="1_o6a70"]
+[ext_resource type="Texture2D" uid="uid://by2ouh2v64us8" path="res://Title.png" id="2_hxe85"]
+[ext_resource type="Theme" uid="uid://5wa3d2rvoqkt" path="res://ButtonTheme.tres" id="3_hxe85"]
+
+[node name="Menue" type="Control" unique_id=160464015]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o6a70")
+
+[node name="BackGround" type="ColorRect" parent="." unique_id=787687230]
+z_index = -81
+layout_mode = 0
+offset_left = -9267.0
+offset_top = -12653.0
+offset_right = 16024.0
+offset_bottom = 3957.0
+color = Color(0.2848, 0.78913325, 0.89, 1)
+
+[node name="Title" type="Sprite2D" parent="." unique_id=1099558420]
+unique_name_in_owner = true
+z_index = 467
+position = Vector2(565, 97)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("2_hxe85")
+
+[node name="PlayButton" type="Button" parent="." unique_id=1482011147]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 455.0
+offset_top = -361.0
+offset_right = 692.99854
+offset_bottom = -313.0
+theme = ExtResource("3_hxe85")
+text = "Play"
+
+[node name="Settingsbutton" type="Button" parent="." unique_id=1787490388]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 455.0
+offset_top = -261.0
+offset_right = 692.99854
+offset_bottom = -213.0
+theme = ExtResource("3_hxe85")
+text = "Settings"
+
+[node name="DeleteData" type="Button" parent="." unique_id=1948960646]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 455.0
+offset_top = -161.0
+offset_right = 692.99854
+offset_bottom = -113.0
+theme = ExtResource("3_hxe85")
+text = "DeleteData"
+
+[node name="Credits" type="Button" parent="." unique_id=736566764]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 455.0
+offset_top = -61.0
+offset_right = 692.99854
+offset_bottom = -13.0
+theme = ExtResource("3_hxe85")
+text = "Credits"
+
+[node name="InputButton" type="Button" parent="." unique_id=687868915]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 937.0
+offset_top = -73.0
+offset_right = 1152.0
+offset_bottom = -5.0
+theme = ExtResource("3_hxe85")
+text = "Input Guide"

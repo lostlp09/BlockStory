@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dvf1jj22mwe2u"]
+
+[ext_resource type="AudioStream" uid="uid://bkdky0j8asnwu" path="res://00_jump.mp3" id="1_oux0o"]
+[ext_resource type="Script" uid="uid://b1xae3ystujtn" path="res://jumpsound.gd" id="2_fdvoa"]
+
+[node name="Jumpsound" type="AudioStreamPlayer2D" unique_id=831103219]
+position = Vector2(-1, 0)
+stream = ExtResource("1_oux0o")
+script = ExtResource("2_fdvoa")

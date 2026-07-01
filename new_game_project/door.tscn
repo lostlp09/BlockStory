@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cmwqxwydgugq8"]
+
+[ext_resource type="Texture2D" uid="uid://bbmhlu3jdnkco" path="res://light.png" id="1_ba8gm"]
+[ext_resource type="Script" uid="uid://bwyjaj0e1bcd5" path="res://door.gd" id="1_v6xrn"]
+
+[sub_resource type="Gradient" id="Gradient_ba8gm"]
+colors = PackedColorArray(0, 1.5847855, 2.3737235, 1, 0, 1.5847855, 2.3737235, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ba8gm"]
+size = Vector2(62, 278)
+
+[node name="Door" type="Node2D" unique_id=1911892829]
+script = ExtResource("1_v6xrn")
+
+[node name="Light" type="Sprite2D" parent="." unique_id=1902669882]
+modulate = Color(0, 1.2011673, 1.8247963, 1)
+position = Vector2(97.00001, 1.9073486e-06)
+rotation = 1.5707964
+scale = Vector2(0.26835692, 0.28561172)
+texture = ExtResource("1_ba8gm")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=387562782]
+position = Vector2(188, 0)
+amount = 64
+lifetime = 1.8
+emission_shape = 3
+emission_rect_extents = Vector2(0, 140)
+gravity = Vector2(-100, 0)
+scale_amount_min = 3.0
+scale_amount_max = 8.0
+color_ramp = SubResource("Gradient_ba8gm")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=160253684]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1862557650]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=213454458]
+position = Vector2(163, 1)
+shape = SubResource("RectangleShape2D_ba8gm")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

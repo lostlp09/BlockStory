@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://20dqpldmasjn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0n1c"]
-size = Vector2(63.5, 66)
+size = Vector2(75.75, 66)
 
 [node name="M1Damage" type="Node2D" unique_id=2054620356]
 metadata/Damage = 20
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1976233618]
+collision_layer = 9
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1435478190]
 unique_name_in_owner = true
-position = Vector2(4, 0)
+position = Vector2(-2.125, 0)
 shape = SubResource("RectangleShape2D_h0n1c")

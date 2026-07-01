@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://5567ywb6vb0a"]
+
+[ext_resource type="AudioStream" uid="uid://b8ueiq654vtoa" path="res://Terraria Male Damage Sound Effect.mp3" id="1_186ep"]
+[ext_resource type="Script" uid="uid://b1xae3ystujtn" path="res://jumpsound.gd" id="2_3xjpb"]
+
+[node name="HitSound" type="AudioStreamPlayer2D" unique_id=831103219]
+stream = ExtResource("1_186ep")
+script = ExtResource("2_3xjpb")

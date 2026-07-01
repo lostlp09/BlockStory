@@ -2,8 +2,12 @@ extends Node
 var PlayerData = {"Checkpoint":0}
 var Health = 100
 func _ready() -> void:
-	PlayerData = LoadData()
-	print(PlayerData)
+	if not FileAccess.file_exists("user://saveBlockStory"):
+		PlayerData["Volume"] = 100
+		
+	else:
+		PlayerData = LoadData()
+		print(PlayerData)
 	
 	
 	
@@ -22,5 +26,6 @@ func  LoadData():
 	return FullData
 	
 func SaveData():
+	
 	var savedata = FileAccess.open("user://saveBlockStory",FileAccess.WRITE)
 	savedata.store_var(PlayerData)
